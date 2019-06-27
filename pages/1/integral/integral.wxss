@@ -1,0 +1,23 @@
+/* pages/1/integral/index.wxss */
+page{background-color: #fff;}
+.title{position: relative;}
+.title image{width: 26rpx;}
+.title .weui-cell__ft{color: #666;}
+.subtotal image{width:6rpx;margin-right: 10rpx;}
+.subtotal text{color: #fb5d15;}
+.subtotal .weui-cell__ft image{width: 34rpx;}
+.detail .date{font-size: 24rpx;color: #999;}
+.detail .weui-cell__ft{color: #333;}
+.popup{background-color: #fff;position: absolute;top:35px;right:15px;z-index: 1000;text-align: center;border:1px solid #e9e9e9;padding:0 16rpx;width: 110rpx;border-radius: 10rpx;overflow: visible;}
+.popup view{overflow-y: visible;height: 65rpx;line-height: 65rpx;border-bottom:1px solid #d9d9d9;}
+.popup{background-color: #fff;position: absolute;top:35px;right:15px;z-index: 1000;text-align: center;border:1px solid #e9e9e9;padding:0 16rpx;width: 110rpx;border-radius: 10rpx;}
+.popup view{height: 65rpx;line-height: 65rpx;border-bottom:1px solid #d9d9d9;overflow: inherit;}
+.summary{
+  padding:0 30rpx;
+  padding-bottom:25rpx;
+  color:#666;
+}
+.summarys{
+  background-color: #f7f7f7;
+}
+

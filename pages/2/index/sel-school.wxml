@@ -1,0 +1,9 @@
+<!--pages/2/index/sel-school.wxml-->
+<view class="main">
+  <view class="school-list">
+    <block wx:for="{{schools}}" wx:key="key" wx:for-index="index" > 
+      <view class="school" bindtap="selSchool" data-school="{{item}}">{{item.name}}</view>
+    </block>
+  </view>
+  <view class="summary">以上是您附近的所有大学</view>
+</view>

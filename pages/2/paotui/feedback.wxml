@@ -1,0 +1,15 @@
+<view class="page-header">
+  <view class="get-back" bindtap="goBack"> 
+    <image src="../../../images/back.png"></image>
+  </view>
+  <view style="font-size:36rpx;">意见反馈</view>
+  <view bindtap="send">发送</view>
+</view>
+<view class='container '>
+  <view class='title'>邮箱</view>
+  <input placeholder='请输入您的收件邮箱' placeholder-class="phcolor" data-type="email" value="" bindinput="opinion" data-model="opinion"></input>
+  <view class='line'></view>
+
+  <view class='title'>反馈内容</view>
+  <textarea placeholder-class="phcolor" placeholder='请输入您的详细反馈信息...' data-type="content" value="" bindinput="opinion" data-model="opinion"></textarea>
+</view>

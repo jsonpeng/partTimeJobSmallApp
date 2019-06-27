@@ -1,0 +1,32 @@
+<!--pages/1/company/index.wxml-->
+<import src="../../../wxParse/wxParse.wxml"/>
+<view class='weui-cell head'>
+    <view class='weui-cell__hd'><image src="{{company.publisher.head_image}}" mode='widthFix'></image></view>
+    <view class='company_name weui-cell__bd'>
+        <view>{{company.company.name}}</view>
+        <image src='../../../images/vip.png' mode='widthFix'></image>
+    </view>
+</view>
+<view class='weui-cell'>
+    <view class='weui-cell__hd left_bar'>联系人</view>
+    <view class='weui-cell__bd right_bar'>{{company.company.contact_man?company.company.contact_man:''}}</view>
+</view>
+
+<view class='weui-cell' wx:if="{{company.jianzhi.show_commit}}">
+    <view class='weui-cell__hd left_bar'>联系电话</view>
+    <view class='weui-cell__bd right_bar'>{{company.company.mobile?company.company.mobile:''}}</view>
+</view>
+<view class='weui-cell line'>
+    <view class='weui-cell__bd'></view>
+</view>
+<view class='weui-cell'>
+    <view class='weui-cell__hd left_bar'>联系地址</view>
+    <view class='weui-cell__bd right_bar'>{{company.company.detail}}</view>
+</view>
+  <view class='titile'>
+    <image class='leftPic' src='../../../images/shot-bar.png' mode='widthFix'></image>
+    <text>相关简介</text>
+  </view>
+  <view class='content'>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+  </view>

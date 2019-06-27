@@ -1,0 +1,44 @@
+<!--pages/1/apply/index.wxml-->
+<form bindsubmit='postForm'>
+  <view class='container '>
+    <view class='title'>企业名称</view>
+    <input placeholder='请输入企业名称' placeholder-class="phcolor" name='company'></input>
+    <view class='line'></view>
+
+    <view class='title'>企业地址</view>
+    <input placeholder='请选择企业地址' placeholder-class="phcolor" value='{{ address }}' bindtap='chooseLocation' name='address'></input>
+    <view class='line'></view>
+
+    <view class='title'>联系人</view>
+    <input placeholder='请输入联系人姓名' placeholder-class="phcolor" name='name'></input>
+    <view class='line'></view>
+
+
+    <view class='title'>联系电话</view>
+    <input placeholder='请输入联系电话' placeholder-class="phcolor" name='phone'></input>
+    <view class='line'></view>
+
+    <view class='title'>企业信息</view>
+    <textarea placeholder-class="phcolor" placeholder='请简述企业信息' name='info'></textarea>
+    <view class='line'></view>
+
+    <view class='title'>请上传营业执照</view>
+      <view class="weui-uploader__bd">
+        <view class="weui-uploader__files" id="uploaderFiles">
+          <block wx:for="{{ post_images }}" wx:key="*this" wx:for-index="index">
+            <view class="weui-uploader__file" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" bindtap="previewImage" bindlongtap='delImage' data-index="{{ index }}" id="{{item}}">
+              <block wx:if="{{item}}">
+                <image class="weui-uploader__img" src="{{ item }}" mode="aspectFill" />
+                <image src="../../../images/cha.png" class="cha" catchtap="delImage"></image>
+              </block>
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class='addPic' bindtap="chooseImageTap" wx:if="{{ post_images.length < 6  }}">+ 添加照片</view>
+  </view>
+
+  <view class='bottom-btn'>
+    <button class='btn' form-type='submit'>提交</button>
+  </view>
+</form>

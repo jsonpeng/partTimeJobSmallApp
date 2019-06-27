@@ -1,0 +1,27 @@
+<form bindsubmit='postForm'>
+  <view class='container '>
+    <view class='title'>投诉原因</view>
+    <input placeholder='请输入投诉原因' placeholder-class="phcolor" name='reason'></input>
+    <view class='line'></view>
+
+    <view class='title'>投诉内容</view>
+    <textarea placeholder-class="phcolor" placeholder='请输入详细投诉内容...' name='contents'></textarea>
+    <view class="weui-uploader__bd">
+      <view class="weui-uploader__files" id="uploaderFiles">
+        <block wx:for="{{ post_images }}" wx:key="*this" wx:for-index="index">
+          <view class="weui-uploader__file" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" bindtap="previewImage" bindlongtap='delImage' data-index="{{ index }}" id="{{item}}">
+            <image class="weui-uploader__img" src="{{ item }}" mode="aspectFill" />
+          </view>
+        </block>
+        <!-- <view class="weui-uploader__file" wx:if="{{ post_images.length == 0 }}">
+        <image class="weui-uploader__img" src="../../images/camera.jpg" mode="aspectFill" />
+      </view> -->
+      </view>
+    </view>
+    <!-- <view class='addPic' bindtap="chooseImageTap" wx:if="{{ post_images.length < 6  }}">+ 添加照片</view> -->
+  </view>
+
+  <view class='bottom-btn'>
+    <button class='btn' form-type='submit'>提交</button>
+  </view>
+</form>

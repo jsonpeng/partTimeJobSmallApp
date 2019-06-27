@@ -1,0 +1,118 @@
+<!--pages/2/index/detail.wxml-->
+<view class="task-detail">
+  <view class="task-main">
+    <view class="title">
+      <view class="task-name">{{task.name}}</view>
+      <view class="task-status" wx:if="{{curNavbar==2}}">已收货</view>
+      <view class="task-status" wx:if="{{curNavbar==4}}">已收款</view>
+      <view class="task-status" wx:if="{{curNavbar==1}}">待收货</view>
+      <view class="task-status" wx:if="{{curNavbar==3}}">待送达</view>
+      <view class="task-status" wx:if="{{curNavbar==0}}">待接</view>
+    </view> 
+    <view class="task-content">
+      <view class="expect-time">期望送达时间：{{task.current_remain_time}} <text style="margin-left:50rpx;" wx:if="{{task.status=='已发布'}}">{{task.cha_remain_time}}</text></view>
+      <view>联系电话：{{task.mobile}}</view>
+      <view>送货地址：{{task.address}}</view>
+      <view>备注：</view>
+      <view class="remark" wx:if="{{task.remark==null}}">无</view>
+      <view class="remark" wx:else>{{task.remark}}</view>
+      <view class="weui-uploader__bd">
+        <view class="weui-uploader__files" id="uploaderFiles">
+          <block wx:for="{{ task.images }}" wx:key="key" wx:for-index="index">
+            <view class="weui-uploader__file" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" bindtap="previewImage" bindlongtap='delImage' data-index="{{ index }}">
+              <image class="weui-uploader__img" src="{{ item.url }}" mode="aspectFill" />
+            </view>
+          </block>
+        </view>
+      </view>
+      <view wx:if="{{task.price_type=='无需额外费用'}}">无需额外费用</view>
+      <view wx:elif="{{task.wait_buyer_enter==0}}">物品费用：￥{{task.item_cost}}</view>
+      <view wx:elif="{{task.item_cost==null || task.item_cost==0}}">物品费用：待买手确认</view>
+      <view wx:else>物品费用：￥{{task.item_cost}}</view>
+      <view class="total">打赏￥{{task.give_price}}
+        <text>合计：￥{{task.pay_price}}</text>
+      </view>
+    </view>
+  </view>
+  <block wx:if="{{task.pay_status=='未支付'&& task.user_id == user.id}}">
+    <button class="btn" bindtap="pay" wx:if="{{task.price_type=='无需额外费用'}}">
+      立即支付
+    </button>
+    <button class="btn" bindtap="pay" disabled="{{task.wait_buyer_enter==1 ?true :false}}" wx:else >
+      立即支付
+    </button>
+  </block>
+  <block wx:if="{{curNavbar==0 && task.status=='待收货'}}">
+    <view class="contact-cust">
+      <view class="hd">
+        <image src="{{task.errander.head_image}}"></image>
+      </view>
+      <view class="bd">
+        <view>{{task.errander.nickname}}</view>
+      </view>
+      <view class="ft">
+        <image src="../../../images/tel.png" bindtap="phoneCall" data-replyPhone="{{task.errander.mobile}}"></image>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{curNavbar==1}}">
+    <view class="contact-cust">
+      <view class="hd">
+        <image src="{{task.errander.head_image}}"></image>
+      </view>
+      <view class="bd">
+        <view>{{task.errander.nickname}}</view>
+      </view>
+      <view class="ft">
+        <image class="tousu" src="../../../images/complain.png" bindtap="toComplaint" data-content="{{task}}"></image>
+        <view class="line"></view>
+        <image src="../../../images/tel.png" bindtap="phoneCall"  data-replyPhone="{{task.errander.mobile}}"></image>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{curNavbar==2}}">
+    <view class="contact-cust">
+      <view class="hd">
+        <image src="{{task.errander.head_image}}"></image>
+      </view>
+      <view class="bd">
+        <view>{{task.errander.nickname}}</view>
+      </view>
+      <view class="ft">
+        <image src="../../../images/tel.png" bindtap="phoneCall" data-replyPhone="{{task.errander.mobile}}"></image>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{curNavbar==3}}">
+    <button class="btn" bindtap="cancel_task" data-id="{{task.id}}" disabled="{{task.wait_buyer_enter==1 && task.item_cost!=null && task.item_cost!=0 && task.pay_status=='已支付'}}">
+      取消订单
+    </button>
+    <view class="contact-cust">
+      <view class="hd">
+        <image src="{{task.user.head_image}}"></image>
+      </view>
+      <view class="bd">
+        <view>{{task.user.nickname}}</view>
+      </view>
+      <view class="ft">
+        <image class="tousu" src="../../../images/complain.png" bindtap="toComplaint" data-content="{{task}}"></image>
+        <view class="line"></view>
+        <image src="../../../images/tel.png" bindtap="phoneCall" data-replyPhone="{{task.mobile}}"></image>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{curNavbar==4}}">
+    <view class="contact-cust">
+      <view class="hd">
+        <image src="{{task.user.head_image}}"></image>
+      </view>
+      <view class="bd">
+        <view>{{task.user.nickname}}</view>
+      </view>
+      <view class="ft">
+        <image src="../../../images/tel.png" bindtap="phoneCall" data-replyPhone="{{task.mobile}}"></image>
+      </view>
+    </view>
+  </block>
+</view>
+

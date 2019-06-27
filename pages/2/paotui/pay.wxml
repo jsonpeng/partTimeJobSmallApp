@@ -1,0 +1,15 @@
+<!--pages/2/paotui/pay.wxml-->
+<view class="page-header">
+  <view class="get-back" bindtap="goBack"> 
+    <image src="../../../images/back.png"></image>
+  </view>
+  <view style="font-size:36rpx;">确认物费</view>
+  <view bindtap="save">保存</view>
+</view>
+<view class="main">
+  <view class="section">
+    <view>物品金额(元)</view>
+      <!-- <input placeholder="请输入物品金额" type="digit" value='' bindinput='wufeiInput' data-type="item_cost" wx:if="{{item_cost==0||item_cost==null}}"/> -->
+      <input placeholder="请输入物品金额" type="digit" value="{{item_cost==0||null? '':item_cost}}" bindinput='wufeiInput' data-type="item_cost" />
+  </view>
+</view>

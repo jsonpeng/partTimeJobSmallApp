@@ -1,0 +1,124 @@
+/* pages/jianzhi/index.wxss */
+.user-info{
+  background: -webkit-gradient(linear, left top, right top, from(#ff9b28), to(#ff6912));
+  padding-top:28rpx;
+  padding-bottom:56rpx;
+}
+.user-info .title{
+  color:#fff;
+  font-size:36rpx;
+  text-align: center;
+}
+.user-info .main{
+  display: flex;
+  align-items: center;
+  padding:0 30rpx;
+}
+.touxiang image{
+  width:128rpx;
+  height:128rpx;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+.user-info .info{
+  flex:1;
+  display: flex;
+  align-items: center;
+}
+.user-info .info .left{
+  color:#fff;
+  font-size: 26rpx;
+  padding-left:30rpx;
+  flex:1;
+}
+.user-info .info .left view:first-child{
+  font-size:32rpx;
+}
+.user-info .info .right{
+  color:#fff;
+  font-size: 26rpx;
+  position:relative;
+  box-sizing: content-box;
+  flex:1;
+}
+.right-box{
+  padding-left:50rpx;
+}
+.user-info .info .right::before{
+  content:'';
+  position:absolute;
+  top:50%;
+  left:0;
+  width:1px;
+  height:48rpx;
+  background-color: #fff;
+  transform: translateY(-50%);
+}  
+.user-info .info .right-box view:first-child{
+  font-size:32rpx;
+}
+.menu-list{
+  padding:50rpx 0;
+  display: flex;
+  background-color: #fff;
+  border-bottom:1px solid #ececec;
+}
+.menu-item{
+  flex:1;
+  text-align: center;
+  border-right:1px solid #e6e6e6;
+}
+.menu-item:last-child{
+  border-right:none;
+}
+.menu-item image{
+  width:60rpx;
+  height:60rpx;
+  margin-bottom:10rpx;
+}
+.menu-item .dark{
+  color:#b2b2b2;
+}
+.link-list{
+  border-top:1px solid #ececec;
+  margin-top:13rpx;
+}
+.link-item{
+  display: flex;
+  align-items: center;
+  background-color:#fff;
+  padding-left:30rpx;
+}
+.link-item .hd {
+  margin-right:24rpx;
+}
+.link-item .hd image{
+  width:40rpx;
+  height:40rpx;
+}
+.link-item .bd{
+  flex:1;
+  display: flex;
+  padding:24rpx 0;
+  padding-right:30rpx;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom:1px solid #ededed;
+}
+.link-item .bd image{
+  width:17rpx;
+  height:30rpx;
+}
+.selType{
+  padding:25rpx 0;
+  background-color: #fff;
+  text-align: center;
+  border-bottom:1px solid #ededed;
+}
+.selType text{
+  font-size:28rpx;
+  color:#000;
+}
+.selType text.dark{
+  color:#b2b2b2;
+}

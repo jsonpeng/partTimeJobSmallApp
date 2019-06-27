@@ -1,0 +1,13 @@
+<!--pages/login/login.wxml-->
+<view class="js_dialog" id="iosDialog2" style="opacity: 1;" hidden="{{saveHidden}}">
+  <view class="weui-mask"></view>
+  <view class="weui-dialog">
+      <view class="weui-dialog__hd"><text class="weui-dialog__title">登录并授权</text></view>
+      <view class="weui-dialog__bd">{{msg}}</view>
+      <view class="weui-dialog__ft">
+          <button wx:if="{{canUse}}" open-type="getUserInfo" bindgetuserinfo="toLogin" class="weui-dialog__btn weui-dialog__btn_primary">登录</button>
+          <view wx:else>请升级微信版本</view>
+      </view>
+  </view>
+</view>
+

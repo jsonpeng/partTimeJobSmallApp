@@ -1,0 +1,7 @@
+<!--pages/2/paotui/changePhone.wxml-->
+<view class="main">
+  <view class="section">
+    <view>投诉原因</view>
+      <input placeholder="请输入投诉原因" maxlength='20' value='' bindinput='complaint' data-type="type"  />
+  </view>
+</view>

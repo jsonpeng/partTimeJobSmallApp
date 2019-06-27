@@ -1,0 +1,153 @@
+<!--pages/release/index.wxml-->
+<view class="page-header">
+  <view class="get-back" bindtap="goBack"> 
+    <image src="../../../images/back.png"></image>
+  </view>
+  <view style="font-size:36rpx;">发布</view>
+  <view></view>
+</view>
+<view class="main">
+  <view class="section">
+    <view>任务需求</view>
+    <view class=" task-name" wx:if="{{input.length<=4}}">
+      <block wx:for="{{input}}" wx:key="key" wx:index="index" >
+          <text class="every" wx:if="{{item!=''}}">{{item}}</text>
+          <input placeholder=""  value='{{task.tem_word1}}' data-type="tem_word1" data-model="task" bindinput="taskInput" wx:elif="{{index<=1}}" data-index="{{index}}"/>
+           <input placeholder=""  value='{{task.tem_word2}}' data-type="tem_word2" data-model="task" bindinput="taskInput" wx:else data-index="{{index}}"/> 
+      </block>
+    </view>
+    <view class=" task-name" wx:else>
+      <block wx:for="{{input}}" wx:key="key" wx:index="index">
+        <text class="every" wx:if="{{item!=''}}">{{item}}</text>
+        <input placeholder=""  value='{{task.tem_word1}}' data-type="tem_word1" data-model="task" bindinput="taskInput" wx:elif="{{index<=1}}" data-index="{{index}}"/>
+          <input placeholder=""  value='{{task.tem_word2}}' data-type="tem_word2" data-model="task" bindinput="taskInput" wx:elif="{{index<=3}}" data-index="{{index}}"/> 
+          <input placeholder=""  value='{{task.tem_word3}}' data-type="tem_word3" data-model="task" bindinput="taskInput" wx:else data-index="{{index}}"/> 
+      </block>
+    </view>
+    <view class="sel-tem" bindtap="sel_tem">+我要选模版</view>
+    <!-- <view class="tem-list" wx:if="{{ selected }}">
+      <view bindtap="selTem" class="selTem" wx:if="{{selTem!==''}}">{{selTem}}</view>
+    </view>   -->
+  </view>
+  <view class="section">
+    <view>备注</view>
+    <view class="text-box">
+      <textarea placeholder="请输入任务需求备注信息..."  value='{{task.remark}}' bindinput='taskInput' data-type="remark" data-model="task"/>
+      <view class="weui-uploader__bd">
+        <view class="weui-uploader__files" id="uploaderFiles">
+          <block wx:for="{{ post_images }}" wx:key="*this" wx:for-index="index">
+            <view class="weui-uploader__file" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" bindtap="previewImage" bindlongtap='delImage' data-index="{{ index }}">
+              <block wx:if="{{item}}">
+                <image class="weui-uploader__img" src="{{ item }}" mode="aspectFill" />
+                <image src="../../../images/cha.png" class="cha" catchtap="delImage"></image>
+              </block>
+              <!-- <image src="../../"></image> -->
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view class='addPic' bindtap="chooseImageTap" wx:if="{{ post_images.length < 6  }}">+ 添加图片</view>
+    <!-- <view class="images">
+      <block wx:for="{{post_images}}" wx:key="key" >
+        <image src="{{item}}" hidden="{{item==''? true :false}}"></image>
+      </block>
+      <image src="../../../images/add.png" bindtap="chooseImageTap" hidden="{{post_images.length==6? true :false}}"></image>
+    </view> -->
+  </view>
+  <view class="section">
+    <view>打赏金额</view>
+      <input placeholder="打赏金额最低为1元" type="digit" value='{{task.give_price}}' bindinput='taskInput' data-type="give_price" data-model="task"/>
+  </view>
+  <view class="section">
+    <view>物品金额</view>
+    <view class="cost">
+       <view class="cur-item" bindtap="pull">
+        {{sel_cust_type}}
+        <image src="../../../images/pull.png"></image>
+      </view>
+      <view class="cost-list" hidden="{{saveHidden1}}">
+        <block wx:for="{{cust_type}}" wx:key="key">
+          <view class="cost-item" bindtap="sel_custType" data-type="{{item}}">{{item}}</view>
+        </block>
+      </view> 
+        <!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{cust_type}}">
+          <view class="picker">
+            当前选择：{{cust_type[index]}}
+          </view>
+        </picker> -->
+      
+    </view>
+    <radio-group class="radio-group" bindchange="radioChange">
+      <view class="cost-option" wx:if="{{sel_cust_type=='需支付物品费用'}}" wx:for="{{radios}}" wx:key="key" wx:for-index="index">
+        <radio value="{{item}}"/>{{item}}
+        <input style="padding-bottom:10rpx;border-bottom:1px solid #e5e5e5;" placeholder="请输入物品费用" type="digit" value='{{task.item_cost}}' bindinput='taskInput' data-type="item_cost" data-model="task" wx:if="{{no_pay==false && index==0}}" data-index="{{index}}"/>
+      </view>
+    </radio-group>
+  </view>
+  
+  <view class="section">
+    <view>任务截止时间:</view>
+     <view class="leave-time">
+       <!-- <view>
+        <input placeholder="小时" type="number" value='{{task.remain_time_hour}}' bindinput='taskInput' data-type="remain_time_hour" data-model="task"/>
+      </view>
+      <view>
+        <input placeholder="分钟" type="number" value='{{task.remain_time_min}}' bindinput='taskInput' data-type="remain_time_min" data-model="task"/>
+      </view>  -->
+      <!-- <picker mode="multiSelector" value="{{dateTime}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+         <view>{{current_remain_time}}</view>
+      </picker> -->
+      <picker mode="time" value="" bindchange="changeTime">
+        <view>{{current_remain_time}}</view>
+      </picker>
+    </view> 
+     <view style="font-size:26rpx;color:#999 ">注意：当到达截止时间该任务会被自动撤销</view> 
+  </view> 
+  <view class="section">
+    <view>期望送达时间</view>
+    <view class="leave-time">
+      <!-- <picker mode="multiSelector" value="{{dateTime}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray}}">
+        <view>{{current_wish_time}}</view>
+      </picker> -->
+      <picker mode="time" value="" bindchange="changeTime1">
+        <view>{{current_wish_time}}</view>
+      </picker>
+    </view>
+  </view> 
+  <view class="section">
+    <view>联系电话</view>
+      <input placeholder="请输入您的联系电话" type="number" value='{{user.mobile}}' bindinput='taskInput' data-type="mobile" data-model="task"/>
+  </view>
+  <view class="section">
+    <view>送货地址</view>
+    <view class="sel-addr">
+      <input placeholder="请输入您的具体位置"  value='{{task.address}}' bindinput="taskInput" data-type="address" data-model="task"/>
+      <image src="../../../images/loca.jpg" bindtap="chooseMap"></image>
+    </view>
+  </view>
+</view>
+<view class="btn-box" >
+  <text class="btn" bindtap="submit">提交</text>
+</view>
+
+<view hidden="{{saveHidden}}" >
+  <view class="popup" bindtap="hidden"></view>
+  <view class="popups">
+    <view class="button-box">
+      <button type="default" bindtap="confirm">确认</button>
+    </view>
+    <view class="sel-serve">
+      <view class="title">请选择模版</view>
+      <radio-group bindchange="radioChange1">
+        <view class="serves" wx:for="{{tems}}" wx:key="item" wx:for-item="tem" wx:for-index="index">
+          <view>
+            {{tem.content}}
+            <radio value="{{tem.content}}"/>
+          </view>
+        </view>
+      </radio-group>
+    </view>
+  </view>
+</view>
+

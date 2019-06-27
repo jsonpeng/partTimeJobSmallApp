@@ -1,0 +1,117 @@
+<!--pages/index/index.wxml-->
+<!-- <text>首页</text> -->
+<!-- 顶部搜索栏 -->
+<import src="../../../template/tabbar.wxml" />
+     <loading hidden="{{hidden}}">
+        加载中...
+    </loading> 
+<view class="top">
+  <view class="page-header">
+    <view class="get-back" bindtap="goBack">
+      <image src="../../../images/back.png"></image>
+    </view>
+    <view style="font-size:36rpx;">兼职</view>
+    <view style="opacity:0;"></view>
+  </view>
+  <view class='weui-cell serchBar'>
+    <view class='weui-cell__hd'>
+      <view  catchtap='changeStatus'>{{ locaiton }}</view>
+      <image src="../../../images/down.png" class="down" mode="widthFix"></image>
+    </view>
+    <view class='weui-cell__bd'>
+      <!-- <input placeholder="请输入要搜索的内容"></input>
+      <icon class="weui-icon-search" type="search" size="14"></icon> -->
+      <view class="weui-search-bar">
+        <view class="weui-search-bar__form">
+          <view class="weui-search-bar__box">
+            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+            <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{search_val}}" focus="{{inputShowed}}" bindinput="searchword" />
+            <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+              <icon type="clear" size="14"></icon>
+            </view>
+          </view>
+          <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+            <icon class="weui-icon-search" type="search" size="14"></icon>
+            <view class="weui-search-bar__text">请输入兼职名称</view>
+          </label>
+        </view>
+        <view class="weui-search-bar__cancel-btn" bindtap="searchCancel" hidden="{{!inputShowed}}">取消</view>
+      </view>
+      <view class="weui-cells searchbar-result" wx:if="{{ search_list.length>0 }}">
+        <block wx:for="{{ search_list }}" wx:key="key" wx:for-key="item">
+          <navigator url="../index/detail?josId={{ item.id }}" class="weui-cell" hover-class="weui-cell_active" wx:if="{{item.front_show == 1}}">
+            <view class="weui-cell__bd">
+              <view>{{ item.name }}</view>
+            </view>
+          </navigator>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <!-- 兼职显示分类标题 -->
+
+  <!-- <view class="weui-tab">
+    <view class="weui-navbar">
+      <block wx:for="{{ jobs }}" wx:for-item="item" wx:key="item" wx:for-index="index">
+        <view class="weui-navbar__item {{ jobsTab==index?'weui-bar__item_on':'' }}" bindtap='switchTab' data-id="{{ item.id }}" data-index="{{ index }}">
+          <text>{{ item.chooseCity?item.chooseCity:item.type }}</text>
+          <image src="../../../images/{{jobsTab==index?'arrow2':'arrow1'}}.png" mode='widthFix'></image>
+        </view>
+      </block>
+    </view> 
+    <view class='list' wx:if="{{showDetail}}">
+      <view bindtap='AllList' wx:if="{{navTap=='区域'}}">全部</view>
+      <block wx:for="{{ contents }}" wx:key="item" wx:for-index="index">
+        <view bindtap='switchList' class="{{switchTab==index? 'active' :''}}" data-index="{{ index }}" data-name="{{ item.name }}">{{item.name}}</view>
+      </block>
+    </view> 
+  </view>   -->
+  <view class="classes">
+    <block wx:for="{{jobs}}" wx:key="item" wx:for-index="index" wx:for-item="class">
+      <view class="class {{currentClass==index ? 'active' : ''}}" bindtap="selClass" data-index="{{index}}">
+        <view>{{class.chooseCity ? class.chooseCity: class.name}}</view>
+      </view>
+      <view class="pull-list" hidden="{{currentClass==index ? false : true }}" data-index="{{index}}">
+        <scroll-view scroll-y style="height: 350px;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+          <block wx:for="{{class.list}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+            <view class="item" data-index="{{ index }}" data-id="{{item.id}}" bindtap="switchList" data-type="{{class.name}}" data-name="{{ item.name }}">{{item.name}}</view>
+          </block>
+        </scroll-view>
+      </view>
+    </block>
+  </view>
+</view>
+<view class="zhezhao" hidden="{{saveHidden}}" bindtap="hide"></view>
+<!-- 兼职显示列表 -->
+<view class="task-list">
+  <block wx:for="{{jobsList}}" wx:for-item="item" wx:key="item" wx:for-index="index">
+    <navigator url="../index/detail?josId={{item.id}}&currentClass={{ request_data.type_id }}&type={{ request_data.length_type }}&current={{ currentClass }}" wx:if="{{item.status!='已撤销' && item.front_show == 1&&item.status=='通过'}}">
+      <view class="task-item">
+        <view class="task-hd">
+          <!-- <image src="{{item.publisher.head_image}}"></image> -->
+          <view class='jostype' style="background-color:#{{colors[index%7]}};">{{item.type}}</view>
+        </view>
+        <view class="task-bd">
+          <!-- <view class="task-title">
+            {{item.company.name}}
+          </view> -->
+          <view class="task-title">
+            {{item.name}}
+          </view>
+          <view class="task-price">{{item.money}}元/{{item.time_set}}</view>
+
+        </view>
+        <view class="task-status">{{item.current_time}}</view>
+        <!-- <view class="isTop" wx:if="{{item.is_top=='1'}}">置顶</view>   -->
+      </view>
+    </navigator>
+  </block>
+  <!-- <view class="summary" hidden="{{reachBottom}}" wx:if="{{jobsList.length>0}}">我是有底线的</view> -->
+</view>
+
+<view class='nothings' wx:if="{{jobsList.length==0&&hidden==true}}">
+  <image src='../../../images/empty.png' mode='widthFix'></image>
+  <view>暂无相关内容</view>
+</view>
+<template is="tabBar" data="{{ tabBar:tabBar }}"></template>

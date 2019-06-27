@@ -1,0 +1,101 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/start/start",
+    "pages/1/index/index",
+    "pages/1/release/index",
+    "pages/1/jianzhi/index",
+    "pages/2/index/index",
+    "pages/2/index/detail",
+    "pages/2/index/sel-school",
+    "pages/2/paotui/index",
+    "pages/2/paotui/my-wallet",
+    "pages/2/paotui/order",
+    "pages/2/paotui/pay",
+    "pages/2/paotui/integral",
+    "pages/2/paotui/calender",
+    "pages/2/paotui/detail",
+    "pages/2/paotui/complaint_detail",
+    "pages/2/paotui/complaint",
+    "pages/2/paotui/complaint-detail",
+    "pages/2/paotui/feedback",
+    "pages/2/paotui/cash",
+    "pages/2/release/index",
+    "pages/2/release/pay",
+    "pages/common/myself",
+    "pages/common/changePhone",
+    "pages/1/city/index",
+    "pages/1/index/detail",
+    "pages/1/apply/index",
+    "pages/1/ask/ask",
+    "pages/1/complaint/index",
+    "pages/1/complaint/manage",
+    "pages/1/opinion/index",
+    "pages/1/integral/integral",
+    "pages/1/enterpriseInfo/index",
+    "pages/1/recruit/index",
+    "pages/1/integral/calender",
+    "pages/1/company/index",
+    "pages/1/selfIntr/index",
+    "pages/1/complaint/detail",
+    "pages/1/ask/detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black",
+    "onReachBottomDistance": 0
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#fb5d15",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/1/index/index",
+        "text": "首页",
+        "active": false,
+        "iconPath": "/images/default1.png",
+        "selectedIconPath": "/images/t1.png"
+      },
+      {
+        "pagePath": "pages/1/release/index",
+        "text": "发布",
+        "active": false,
+        "iconPath": "/images/default2.png",
+        "selectedIconPath": "/images/t2.png"
+      },
+      {
+        "pagePath": "pages/common/myself",
+        "text": "我的",
+        "active": false,
+        "iconPath": "/images/default3.png",
+        "selectedIconPath": "/images/t3.png"
+      },
+      {
+        "pagePath": "pages/2/index/index",
+        "text": "首页",
+        "active": false,
+        "iconPath": "/images/default1.png",
+        "selectedIconPath": "/images/t1.png"
+      },
+      {
+        "pagePath": "pages/2/release/index",
+        "text": "发布",
+        "active": false,
+        "iconPath": "/images/default2.png",
+        "selectedIconPath": "/images/t2.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 20000,
+    "connectSocket": 20000,
+    "uploadFile": 20000,
+    "downloadFile": 20000
+  },
+  "onReachBottomDistance": 100
+}

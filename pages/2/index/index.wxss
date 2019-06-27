@@ -1,0 +1,86 @@
+/* pages/index/index.wxss */
+page{
+  background-color:#f8f8f8;
+  padding-bottom:90rpx;
+}
+.header{
+  background-color: #ff640a;
+  font-size:36rpx;
+  color:#fff;
+  text-align: center;
+  height:90rpx;
+  line-height: 90rpx;
+}
+.cur-addr{
+  font-size: 30rpx;
+  text-align: center;
+  height:90rpx;
+  line-height: 90rpx;
+  border-bottom:2rpx solid #f2f2f2;
+  background-color: #fff;
+}
+.cur-addr image{
+  width:25rpx;
+  height:25rpx;
+}
+.task-item{
+  background-color:#fff;
+  margin-top:6rpx;
+  padding:30rpx;
+  display:flex;
+  align-items: center;
+  position:relative;
+}
+.task-item .task-hd{
+  margin-right:28rpx;
+  width: 110rpx;
+  height:110rpx;
+  line-height:110rpx;
+  text-align: center;
+}
+.task-item .task-hd image{
+  width: 100%;
+  max-height: 100%;
+  vertical-align: top;
+  border-radius: 50%;
+}
+.task-item .task-bd{
+  max-width:420rpx;
+}
+.task-item .task-bd .task-title{
+  font-size:28rpx;
+  font-weight:bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.task-item .task-bd .task-classify{
+  font-size:26rpx;
+  color:#999;
+  margin:8rpx 0;
+}
+.task-item .task-bd .task-price{
+  font-size:28rpx;
+  color:#fb5d15;
+  font-weight:bold;
+}
+.task-status{
+  position:absolute;
+  right:30rpx;
+  top:30rpx;
+  font-size:28rpx;
+  color:#b2b2b2;
+}
+.time-remain{
+  position:absolute;
+  bottom:30rpx;
+  right:30rpx;
+  font-size:26rpx;
+  color:#b2b2b2;
+}
+.summary{
+  color:#999;
+  font-size:26rpx;
+  text-align: center;
+  padding:30rpx;
+}

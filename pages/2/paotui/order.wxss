@@ -1,0 +1,109 @@
+/* pages/2/paotui/daishou.wxss */
+page{
+  background-color: #f2f2f5;
+}
+.navbar{
+  display: flex;
+  margin-top:6rpx;
+  background-color: #fff;
+}
+.navbar .navbar-item{
+  flex:1;
+  height:64rpx;
+  line-height: 64rpx;
+  font-size: 30rpx;
+  color:#000;
+  text-align: center;
+  border-bottom:4rpx solid #d6d6d6;
+}
+.navbar .navbar-item.active{
+  color:#fb5800;
+  border-bottom:4rpx solid #fb5800;
+}
+.task-item{
+  background-color:#fff;
+  padding:30rpx;
+  display:flex;
+  align-items: center;
+  position:relative;
+  margin-bottom:6rpx;
+}
+.task-item .task-hd{
+  margin-right:28rpx;
+  width: 110rpx;
+  height:110rpx;
+  line-height:110rpx;
+  text-align: center;
+}
+.task-item .task-hd image{
+  width: 100%;
+  max-height: 100%;
+  vertical-align: top;
+  border-radius:50%;
+}
+.task-item .task-bd{
+  flex:1;
+}
+.task-item .task-bd .task-title{
+  font-size:28rpx;
+  font-weight:bold;
+  max-width:76%;
+}
+.task-item .task-bd .task-classify{
+  font-size:28rpx;
+  color:#999;
+  margin:8rpx 0;
+}
+.task-item .task-bd .task-price{
+  font-size:28rpx;
+  color:#fb5d15;
+  font-weight:bold;
+}
+.task-operate{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color:#fb5d15;
+  font-size:28rpx;
+  flex-direction: row-reverse;
+  margin-top:10rpx;
+}
+.task-operate image{
+  width:20px;
+  height:20px;
+}
+.task-operate text{
+  display: inline-block;
+  border:2rpx solid #fc8d5b;
+  color:#fc8d5b;
+  font-size: 26rpx;
+  padding:0 18rpx;
+  height:40rpx;
+  line-height: 40rpx;
+  border-radius: 8rpx;
+}
+.task-operate text.dim{
+  color:#ccc;
+  font-size:28rpx;
+  border:none;
+  padding:0;
+}
+.task-status{
+  position:absolute;
+  right:30rpx;
+  top:30rpx;
+  font-size:28rpx;
+  color:#999;
+}
+.task-ft{
+  text-align: right;
+  font-size:28rpx;
+  padding-left:30rpx;
+  color:#ccc;
+}
+.summary{
+  color:#999;
+  font-size:26rpx;
+  text-align: center;
+  padding:30rpx;
+}

@@ -1,0 +1,343 @@
+/* pages/index/index.wxss */
+page{padding-bottom:120rpx;position: relative;padding-top:248.5rpx;}
+.weui-search-bar {
+  padding: 0;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 0;
+  border-top: 0;
+}
+
+.weui-search-bar__cancel-btn {
+  color: #9c9c9c;
+  font-size: 14px;
+}
+
+.weui-search-bar__form {
+  border: 1rpx solid #f3f3f3;
+  border-radius: 20px;
+  background-color: #f3f3f3;
+}
+
+.weui-search-bar__label {
+  border-radius: 20px;
+  background-color: #f3f3f3;
+  line-height: 28px;
+  box-sizing: border-box;
+}
+
+.serchBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  position: relative;
+}
+
+.serchBar .weui-cell__hd {
+  display: flex;
+  align-items: center;
+}
+
+.serchBar .weui-cell__hd navigator {
+  max-width: 6em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 15px;
+  color: #333;
+  margin: 0 5px;
+}
+
+.serchBar .location {
+  width: 15px;
+}
+
+.serchBar .down {
+  width: 10px;
+}
+
+.serchBar .weui-cell__bd {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 15px;
+  margin: 0 7.5px;
+}
+
+.serchBar .message {
+  width: 25px;
+}
+
+.serchBar navigator {
+  display: block;
+}
+
+.serchBar .weui-cell__ft {
+  text-align: right;
+  position: relative;
+}
+
+.serchBar .weui-cell__ft text {
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  border-radius: 50%;
+  text-align: center;
+  background-color: red;
+  font-size: 12px;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  color: #fff;
+}
+
+#searchResult {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 7.5px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+#searchResult navigator {
+  display: block;
+  width: 100%;
+  padding-left: 45px;
+  line-height: 30px;
+  box-sizing: border-box;
+  padding-right: 45px;
+}
+
+#searchResult navigator text {
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 14px;
+  color: #666;
+}
+
+.searchbar-result {
+  margin-top: 0;
+  font-size: 14px;
+  position: absolute;
+  left: 0;
+  top: 40px;
+  width: 100%;
+  z-index: 9999;
+}
+
+.searchbar-result:before {
+  display: none;
+}
+
+.searchbar-result navigator {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* 服务选择 */
+
+.weui-tab {
+  border-top: 1px solid #f2f2f2;
+}
+
+.weui-bar__item_on text {
+  color: #ff640a;
+}
+
+.weui-navbar__item {
+  padding: 0;
+  display: block;
+  font-size: 14px;
+}
+
+.weui-navbar__item text {
+  padding: 13px 0;
+  display: inline-block;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.list {
+  background-color: #fff;
+  width: 100%;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.list view {
+  color: #333;
+  padding: 0 30rpx;
+}
+
+.list view {
+  line-height: 80rpx;
+  height: 80rpx;
+  border-bottom: 1px solid #ededed;
+}
+.list view.active{color:#ff640a;}
+.weui-navbar__item image {
+  display: inline-block;
+  width: 10px;
+  margin-left: 5rpx;
+}
+
+.weui-navbar {
+  position: relative;
+  border-bottom: 0;
+  /* margin-bottom: 5px; */
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+
+/* 兼职信息列表 */
+
+.task-item {
+  background-color: #fff;
+  margin-top: 6rpx;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.task-item .task-hd {
+  margin-right: 28rpx;
+  width: 110rpx;
+  height: 110rpx;
+  line-height: 110rpx;
+  text-align: center;
+}
+
+.task-item .task-hd image {
+  width: 100%;
+  max-height: 100%;
+  vertical-align: top;
+}
+
+.task-item .task-bd {
+  max-width: 360rpx;
+}
+
+.task-item .task-bd .task-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.task-item .task-bd .task-classify {
+  font-size: 28rpx;
+  color: #999;
+  margin: 8rpx 0;
+}
+
+.task-item .task-bd .task-price {
+  font-size: 28rpx;
+  color: #fb5d15;
+  font-weight: bold;
+}
+
+.task-status {
+  position: absolute;
+  right: 30rpx;
+  top: 85rpx;
+  font-size: 24rpx;
+  color: #b2b2b2;
+}
+
+.time-remain {
+  position: absolute;
+  bottom: 30rpx;
+  right: 30rpx;
+  font-size: 28rpx;
+  color: #b2b2b2;
+}
+/* .page-header{position: fixed;width: 100%;top: 0;left: 0;z-index: 1000;}
+.serchBar{position: fixed;width: 100%;top:49px;left: 0;box-sizing: border-box;z-index: 1000;}
+.weui-tab{position: fixed;width: 100%;top:99px;left: 0;z-index: 1000;} */
+.summary{
+  color:#999;
+  font-size:26rpx;
+  text-align: center;
+  padding:30rpx;
+}
+
+
+
+/* 测试测试 */
+.classes{
+  display:flex;
+  justify-content: space-around;
+  background-color:#fff;
+  margin-bottom:5rpx;
+  position:relative;
+  
+}
+.classes .pull-list{
+  position:absolute;
+  left:0;
+  top:100%;
+  width:100%;
+  padding:0 20rpx;
+  box-sizing: border-box;
+  background-color:#fff;
+  margin-top:5rpx;
+}
+.classes .pull-list .item{
+  
+  padding:20rpx;
+  font-size:26rpx;
+  border-bottom:1px solid #ccc;
+}
+.classes .class{
+  flex:1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:28rpx;
+  height:50rpx;
+  line-height:50rpx;
+}
+.classes .class view{
+  padding-right:25rpx;
+  background:url(http://jianzhi.book.kaimusoft.xyz/uploads/arrow1.png) no-repeat right center;
+  background-size:20rpx 12rpx;
+}
+.classes .class.active{
+  color:#ff640a;
+}
+.classes .class.active view{
+  background:url(http://jianzhi.book.kaimusoft.xyz/uploads/arrow2.png) no-repeat right center;
+  background-size:20rpx 12rpx;
+}
+.zhezhao{
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  background-color:rgba(0,0,0,.3);
+  z-index: 1;
+} 
+.top{
+  position:fixed;
+  left:0;
+  top:0;right:0;
+  z-index: 10;
+  background-color:#f2f2f5;
+}
+.isTop{font-size:10px;padding:2px 4px;border-radius:5px;color: #ff640a;position:absolute;
+right:30rpx;
+top:25rpx;
+}
+.jostype{width: 100%;height: 100%;font-size: 12px;color: #fff;border-radius: 50%;}
+.nothings{position: absolute;top: 150%;left: 50%;transform: translate(-50%,-50%);text-align: center;color: #d1d1d1;font-size: 30rpx;}
+.nothings image{width:200rpx;}
+.pull-list scroll-view{padding-bottom: 5px;}

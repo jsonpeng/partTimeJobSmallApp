@@ -1,0 +1,47 @@
+<view class="navbar">
+  <view wx:for="{{navbar[1]}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="item" bindtap="navbarTap">
+    <view>{{item}}</view>
+  </view>
+</view>
+
+
+<!-- 兼职显示列表 -->
+<view class="task-list">
+  <block wx:for="{{askList}}" wx:for-item="item" wx:key="item" wx:for-index="index">
+    <navigator url="../index/detail?josId={{item.project.id?item.project.id:item.id}}&from={{myself.type}}" wx:if="{{item.status!='已撤销'}}">
+      <view class="task-item">
+        <view class="task-hd">
+          <image src="../../../images/custman.jpg"></image>
+        </view>
+        <view class="task-bd">
+          <view class="task-title" wx:if="{{myself.type=='个人'}}">
+            {{item.company.name}}
+          </view>
+          <view class="task-title" wx:if="{{myself.type=='企业'}}">
+            {{item.name}}
+          </view>
+          <view class="task-classify" wx:if="{{myself.type=='企业'}}">
+            {{item.company.name}}
+          </view>
+          <view class="task-classify" wx:if="{{myself.type=='个人'}}">
+            {{item.project.name}}
+          </view>
+          <view class="task-price">{{item.money?item.money:item.project.money}}元/{{item.time_set?item.time_set:item.project.time_set}}</view>
+        </view>
+        <view class="task-status" wx:if="{{item.status!='已报名'&&item.status!='已录用'&&item.status!='已结算'}}">{{item.status}}</view>
+        <view class="task-cancel task-status" data-id="{{item.id}}" catchtap='cancel_item' wx:if="{{state=='已发布'&& item.status!='已撤销'&&state=='已录用'&&item.status!='已录用'}}">撤销</view>
+        <view class="task-cancel task-status laji" data-id="{{item.id}}" catchtap='delete_item_user'>
+          <image src='../../../images/laji.png' mode='widthFix'></image>
+        </view>
+        <view class="canceled task-status" data-id="{{item.id}}" wx:if="{{item.project.status=='已撤销'&&item.status!='已结算'}}">已撤销</view>
+        <!-- 已录用 -->
+        <view class='affirm' wx:if="{{item.status =='已录用'&&state!='已结算'}}" catchtap='affirm' data-info='{{item.id}}'>确认收款</view>
+        <!-- 已结算 -->
+        <navigator url='../complaint/index?id={{item.user_id}}&ProjectId={{item.project_id}}' class='clear' wx:if="{{item.status =='已结算'}}">投诉
+          <image src='../../../images/gt.png' mode='widthFix'></image>
+        </navigator>
+        <!-- <view class="time-remain">剩余30分钟</view> -->
+      </view>
+    </navigator>
+  </block>
+</view>

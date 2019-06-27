@@ -1,0 +1,63 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.1",
+	"appid": "wx2ed3ddf296233320",
+	"projectname": "%E6%A0%A1%E7%BC%98%E8%A1%8C%E5%8A%A8",
+	"svr": "/",
+	"client": "/",
+	"qcloudRoot": "/",
+	"miniprogramRoot": "/",
+	"pluginRoot": "/",
+	"scripts": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "1",
+					"pathName": "pages/1/apply/index",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "2",
+					"pathName": "pages/2/paotui/index",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "paotui",
+					"pathName": "pages/2/paotui/my-wallet",
+					"query": ""
+				}
+			]
+		}
+	}
+}

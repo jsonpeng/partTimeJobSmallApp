@@ -1,0 +1,104 @@
+/* pages/2/paotui/my-wallet.wxss */
+.my-wallet{
+  background-color:#ff8d0a;
+  padding:0 30rpx;
+  padding-bottom:30rpx;
+  position:relative;
+}
+.my-wallet .title{  
+  font-size:36rpx;
+  color:#fff;
+  text-align: center;
+  padding:25rpx 0;
+}
+.my-wallet .title image{
+  position:absolute;
+  left:30rpx;
+  top:36rpx;
+  width:18rpx;
+  height:32rpx;
+}
+.balance{
+  font-size:28rpx;
+  color:#fff;
+  margin:30rpx 0;
+}
+.num{
+  font-size:68rpx;
+  color:#fff;
+  line-height: 1;
+}
+.toCash{
+  position:absolute;
+  right:30rpx;
+  bottom:30rpx;
+  color:#fff;
+  padding:0 22rpx;
+  height:44rpx;
+  line-height: 44rpx;
+  border:1px solid #fff;
+}
+.pay-detail .title{
+  font-size:30rpx;
+  text-align: center;
+  height:70rpx;
+  line-height: 70rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+.pay-detail .title view{
+  flex:1;
+  text-align: center;
+}
+.pay-detail .title view.active{
+  color:#fb6100;
+}
+.task-list{
+  margin-top:6rpx;
+}
+.task-item{
+  background-color:#fff;
+  display:flex;
+  align-items: center;
+  position:relative;
+}
+.task-item .task-hd{
+  width: 110rpx;
+  height:110rpx;
+  padding-left:30rpx;
+  line-height:110rpx;
+  text-align: center;
+}
+.task-item .task-hd image{
+  width: 100%;
+  max-height: 100%;
+  vertical-align: top;
+  border-radius:50%;
+}
+.task-item .task-bd{
+  padding:30rpx;
+  flex:1;
+  border-bottom:1rpx solid #e5e5e5;
+}
+.task-item .task-bd .task-title{
+  max-width:400rpx;
+  font-size:28rpx;
+  color:#000;
+}
+.task-item .task-bd .task-classify{
+  font-size:28rpx;
+  color:#666;
+  margin:8rpx 0;
+}
+.task-item .task-bd .task-price{
+  font-size:26rpx;
+  color:#999;
+}
+.task-item .task-profit{
+  position:absolute;
+  right:30rpx;
+  top:30rpx;
+  color:#000;
+  font-size: 28rpx;
+}

@@ -1,0 +1,53 @@
+/* pages/2/paotui/calender.wxss */
+.filtrate{
+  padding:0 30rpx;
+}
+.switch{
+  margin-top:30rpx;
+  width:210rpx;
+  height:42rpx;
+  line-height: 42rpx;
+  border:1px solid #e6e6e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius:21rpx;
+}
+.switch image{
+  width:28rpx;
+  height:22rpx;
+}
+.date{
+  padding:27rpx 0;
+  text-align: center;
+  color:#000;
+  border-bottom:1px solid #fb6100;
+  font-size:32rpx;
+  display: flex;
+  justify-content: center;
+}
+.date picker{
+  flex:1;
+  color:#fb6100;
+}
+.dark{
+  color:#999;
+}
+/* .btn{
+  margin-top:16rpx;
+  font-size: 34rpx;
+  margin-left:auto;
+  margin-right:auto;
+  padding-left:14px;
+  padding-right:14px;
+  box-sizing:border-box;
+  text-align:center;
+  text-decoration:none;
+  line-height:2.55555556;
+  border-radius:10rpx;
+  -webkit-tap-highlight-color:transparent;
+  overflow:hidden;
+  color:#000000;
+  background-color: #fff;
+  box-shadow: 0 0 12rpx 4rpx rgba(95,95,95,0.06);
+} */

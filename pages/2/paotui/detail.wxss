@@ -1,0 +1,119 @@
+/* pages/2/index/detail.wxss */
+page{
+  background-color:#f5f5f5;
+}
+.task-detail{
+  margin:30rpx;
+}
+.task-main{
+  box-shadow: 0 0 12rpx 4rpx rgba(95,95,95,0.06);
+}
+.task-main .title{
+  background-color:#d9d9d9;
+  color:#fff;
+  padding:25rpx 30rpx;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  font-size:30rpx;
+  position:relative;
+}
+.task-main .title .task-name{
+  max-width: 80%;
+}
+.task-main .title .task-status{
+  position:absolute;
+  right:30rpx;
+  top:25rpx;
+}
+.task-content{
+  padding:15rpx;
+  position:relative;
+  background-color: #fff;
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+}
+.task-content view{
+  padding:8rpx 15rpx;
+  font-size:30rpx;
+  color:#000;
+}
+.total{
+  display: flex;
+  justify-content: space-between;
+  font-size:30rpx;
+}
+.total text{
+  color:#fb5d15;
+}
+.task-content .task-price{
+  color:#fb5d15;
+  font-weight:bold;
+}
+.task-content .remark{
+  color:#b2b2b2;
+}
+.time-remain{
+  position:absolute;
+  right:15rpx;
+  top:15rpx;
+}
+.contact-cust{
+  margin-top:14rpx;
+  padding:30rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 12rpx 4rpx rgba(95,95,95,0.06);
+}
+.contact-cust .hd{
+  margin-right:28rpx;
+}
+.contact-cust .hd image{
+  width:110rpx;
+  height:110rpx;
+  border-radius:50%;
+}
+.contact-cust .bd{
+  font-size:30rpx;
+  color:#000;
+  flex:1;
+}
+.contact-cust .ft image{
+  width:45rpx;
+  height:45rpx;
+  text-align: right;
+}
+.btn{
+  margin-top:16rpx;
+  font-size: 34rpx;
+  margin-left:auto;
+  margin-right:auto;
+  padding-left:14px;
+  padding-right:14px;
+  box-sizing:border-box;
+  text-align:center;
+  text-decoration:none;
+  line-height:2.55555556;
+  border-radius:10rpx;
+  -webkit-tap-highlight-color:transparent;
+  overflow:hidden;
+  color:#000000;
+  background-color: #fff;
+  box-shadow: 0 0 12rpx 4rpx rgba(95,95,95,0.06);
+}
+.tousu{
+  width:54rpx;
+  height:60rpx;
+  position:relative;
+}
+.line{
+  width:2rpx;
+  height:34rpx;
+  background-color: #ccc;
+  margin:0 30rpx;
+  
+}
+ .contact-cust .ft{
+  display: flex;
+  align-items: center;
+} 

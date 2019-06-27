@@ -1,0 +1,24 @@
+<!--pages/2/paotui/complaint.wxml-->
+
+
+
+
+  <view class="main" >
+    <view class="section">
+      <view>投诉原因</view>
+        <input placeholder="请输入投诉原因" maxlength='20' value='{{complaint_task.type}}' bindinput='complaint' data-type="type"  />
+    </view>
+    <view class="section">
+      <view>投诉内容</view>
+        <textarea placeholder-class="phcolor" placeholder='请输入详细投诉内容...' value='{{complaint_task.reason}}' bindinput='complaint' data-type="reason" ></textarea>
+    </view>
+  </view>
+  <view class='bottom-btn' wx:if="{{complaint_task.status!='已通过'}}">
+    <button class='btn' bindtap="save">提交</button>
+  </view>
+
+
+
+
+
+

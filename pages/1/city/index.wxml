@@ -1,0 +1,14 @@
+  <!-- 外部搜索 -->
+  <!-- <view class='list-search'>
+    <view class='list-search-box'>
+      <icon type="search" size="15" />
+      <input placeholder="输入您要搜索的城市" bindinput='input' />
+    </view>
+    <button class='search-button' catchtap='searchMt'>搜索</button>
+  </view> -->
+  
+<view class='wrapper'> 
+  <list-html data="{{city}}" binddetail="bindtap" search="{{value}}"></list-html>
+</view>  
+
+

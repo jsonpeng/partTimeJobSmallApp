@@ -1,0 +1,49 @@
+<!--pages/2/paotui/calender.wxml-->
+<view class="page-header">
+  <view class="get-back" bindtap="goBack"> 
+    <image src="../../../images/back.png"></image>
+  </view>
+  <view style="font-size:36rpx;">选择时间</view>
+  <view bindtap="finish">完成</view>
+</view>
+<view class="filtrate">
+  <!-- <view class="switch" bindtap="switchDate">
+    {{switchDate}}
+    <image src="../../../images/switch.png"></image>
+  </view> -->
+  <view class="date" wx:if="{{switchDate=='按月选择'}}">
+    <picker mode="date" fields="month" value="{{date}}"  bindchange="changeMonth">
+      <view>{{month}}</view>
+    </picker>
+  </view>
+  <view class="date" wx:else>
+    <picker mode="date"  value="{{date}}"  bindchange="changeDate1">
+      <view>{{startDate}}</view>
+    </picker>
+    至
+    <picker mode="date"  value="{{date}}"  bindchange="changeDate2">
+      <view class="{{endDate=='结束日期' ? 'dark' : ''}}">{{endDate}}</view>
+    </picker>
+  </view>
+</view>
+<!-- <view class="btn" bindtap="finish">
+  确定
+</view> -->
+<!-- <view class="sel-time">
+  <text bindtap="shaixuan">时间筛选：</text>
+  <view class="calender-box">
+    <view >
+      <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray1}}">
+        <input placeholder="请输入起始日期"  value='{{startTime}}'/>
+      </picker>
+      <image src="../../images/calender.png"></image>
+    </view>
+    <view>
+      <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
+        <input placeholder="请输入结束日期"  value='{{endTime}}'/>
+      </picker>
+      <image src="../../images/calender.png"></image>
+    </view>
+  </view>
+</view> -->
+

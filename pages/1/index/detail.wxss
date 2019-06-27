@@ -1,0 +1,35 @@
+/* pages/1/index/detail.wxss */
+page{padding-bottom: 110rpx;}
+.intr{padding:45rpx 30rpx 35rpx 30rpx;background-color: #fff;}
+.intr .company{font-size:34rpx;font-weight: bold;color: #333;}
+.intr .pirce{font-size:24rpx;color: #fb5d15;}
+.intr .pirce text{font-size:38rpx;font-weight: bold;margin-right: 10rpx;}
+.intr .supplement{font-size:24rpx;color: #666;}
+.intr .supplement text{margin-right: 10rpx;}
+.add{position: relative;background-color: #fff;}
+.add .locaiton{width:26rpx;}
+.add .box{position: absolute;width: 100%;left: 50%;top:0;transform: translate(-50%,50%);padding:0 30rpx;box-sizing: border-box;}
+.add .site{background-color: rgba(255,255,255,.6);margin:0 15px;box-shadow: 0px 6px 11.52px 0.48px rgba(25, 25, 25, 0.08);}
+.add .bg{width: 100%;}
+.time{background-color: #fff;margin-bottom: 10rpx;}
+.titile{display: flex;align-items: center;margin-bottom: 10rpx;}
+.titile image{width:8rpx;margin-right: 10rpx;}
+.titile text{font-size:32rpx; color: #333;font-weight: bold;margin-right: 20rpx;}
+.titile .line{flex: 1;border-top: 1px solid #e4e4e4;}
+.require,.contents,.info{background-color: #fff;}
+.require .text,.contents .text,.require view{color: #666;font-size: 26rpx;line-height: 2em;}
+.info .weui-cell{background-color: #f7f7f7;}
+.info .weui-cell::before{border-top: 0;}
+.info .weui-cell .weui-cell__bd{font-size:26rpx;margin-left: 20rpx;}
+.info .img{width:85rpx;height: 85rpx;border-radius: 50%;overflow: hidden;}
+.info .img image{width: 100%;}
+.bottom-btn{position: fixed;width: 100%;bottom: 0;left: 0;background-color: #fff;}
+.bottom-btn .btn{float: right;width: 40%;background: linear-gradient(to right, #ffa229 , #ff6d12);color:#fff;line-height: 100rpx;height: 100rpx;text-align: center;font-size: 32rpx;font-weight: bold;}
+.bottom-btn .btn.cancel{color:#999;background:#f0f0f0;}
+.user_info{margin:0 60rpx;background-color: #fff;position: relative;left: 50%;top: 50%;transform: translate(-60%,-50%);box-sizing: border-box;padding:30rpx 70rpx;border-radius: 15rpx;}
+.user_info .head{text-align: center;font-size: 30rpx;color: #333;margin-bottom:30rpx;}
+.user_info  input{height: 60rpx;border: 1px solid #e0e0e0;border-radius: 15rpx;padding-left: 20rpx;margin-bottom: 15rpx;}
+.user_info  textarea{height: 180rpx;border:1px solid #e0e0e0; border-radius: 15rpx;padding-left: 20rpx;width: 100%;padding-top: 20rpx;box-sizing: border-box;margin-bottom:30rpx;}
+.user_info   button{background-color: #ff640a;color: #fff;}
+.user_info .phcolor{color: #ccc;font-size: 26rpx;}
+.add .site text{white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}

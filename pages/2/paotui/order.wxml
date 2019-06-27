@@ -1,0 +1,170 @@
+<!--pages/2/paotui/daishou.wxml-->
+<view class="navbar">
+  <view class="navbar-item {{curNavbar==index? 'active' : ''}}" wx:for="{{navbar}}" wx:key="key" wx:for-index="index" bindtap="switchTab" data-index="{{index}}">{{item}}</view>
+</view>
+<block wx:if="{{curNavbar==0}}">
+    <view class="task-list">
+      <block wx:for="{{tasks}}" wx:key="key" wx:for-item="task" wx:for-index="index" >
+          <view class="task-item" bindtap="toDetail" data-id="{{task.id}}">
+            <view class="task-bd">
+              <view class="task-title"> 
+                {{task.name}}
+              </view>
+              <block wx:if="{{task.status!='已取消'}}">
+                <view class="task-status" wx:if="{{task.cha_remain_time=='已超时'}}">已超时</view>
+                <view class="task-status" wx:elif="{{task.pay_status=='未支付'}}">未支付</view>
+                <view class="task-status" wx:else>待接单</view>
+                <view class="task-operate">
+                  <image catchtap="delete_task" data-id="{{task.id}}" data-index="{{index}}" wx:if="{{task.cha_remain_time=='已超时'||task.pay_status=='未支付'}}" src="../../../images/laji.png"></image>
+                  <text catchtap="cancel_task" data-id="{{task.id}}" data-index="{{index}}" wx:else>取消订单</text>
+                  打赏￥{{task.give_price}}
+                </view>
+              </block>
+              <block wx:else>
+                <view class="task-status">已取消</view>
+                <view class="task-operate">
+                  <image catchtap="delete_task" data-id="{{task.id}}" data-index="{{index}}"  src="../../../images/laji.png"></image>
+                  打赏￥{{task.give_price}}
+                </view>
+              </block>
+                
+                
+                <!-- <view class="task-operate">
+                  <text catchtap="delete_task" data-id="{{task.id}}" data-index="{{index}}" wx:if="{{task.cha_remain_time=='已超时'||task.status=='已取消'}}">删除</text>
+                  <text catchtap="cancel_task" data-id="{{task.id}}" data-index="{{index}}" wx:elif="{{task.pay_status=='已支付'}}" >取消订单</text>
+
+                  <text  data-id="{{task.id}}" data-index="{{index}}" wx:else style="opacity:0;"></text>
+                    打赏￥{{task.give_price}}
+                </view> -->
+              <!-- <block wx:else>
+                <view class="task-status">已接单</view>
+                <view class="task-operate">
+                  <text class="dim" wx:if="{{task.pay_status=='已支付'}}">待送达</text>
+                  <text class="dim" wx:elif="{{task.wait_buyer_enter==1 && task.item_cost==0}}">物费待确认</text>
+                  <text wx:else >物费已确认</text>
+                    打赏￥{{task.give_price}}
+                </view>
+              </block> -->
+            </view>
+          </view>
+        
+      </block>
+    </view>
+  
+</block>
+<block wx:if="{{curNavbar==1}}">
+  <view class="task-list">
+    <block wx:for="{{tasks}}" wx:key="key" wx:for-item="task" wx:for-index="index">
+      
+        <view class="task-item" bindtap="toDetail" data-id="{{task.id}}">
+          <view class="task-hd">
+            <image src="{{task.errander.head_image}}"></image>
+          </view>
+          <view class="task-bd">
+            <view class="task-title"> 
+              {{task.errander.nickname}}
+            </view>
+            
+            <view class="task-status" wx:if="{{task.errand_status=='确认送达'}}">买手已确认</view>
+            <view class="task-status" wx:else>{{task.cha_wish_time}}</view>
+            <view class="task-classify"> 
+              {{task.name}}
+            </view>
+            <view class="task-operate" wx:if="{{task.pay_status=='已支付' && task.errand_status=='确认送达' }}">
+              <text catchtap="pub_confirm" data-id="{{task.id}}" data-index="{{index}}">确认收货</text>
+            </view>
+            <view class="task-operate" wx:elif="{{task.pay_status=='已支付' && task.errand_status=='待送达' }}">
+              <text class="dim" data-id="{{task.id}}" data-index="{{index}}">待送达</text>
+            </view>
+            <view class="task-operate" wx:else>
+              <text class="dim" wx:if="{{task.wait_buyer_enter==1 && task.item_cost==null}}">物费待确认</text>
+              <text class="dim" wx:if="{{task.wait_buyer_enter==1 && task.item_cost==0}}">物费待确认</text>
+              <text class="dim" wx:else>物费已确认</text>
+                打赏￥{{task.give_price}}
+            </view>
+          </view>
+        </view>
+      
+    </block>
+  </view>
+</block>
+<block wx:if="{{curNavbar==2}}">
+  <view class="task-list">
+    <block wx:for="{{tasks}}" wx:key="key" wx:for-item="task" wx:for-index="index">
+      
+        <view class="task-item" bindtap="toDetail" data-id="{{task.id}}" wx:if="{{ task.show == 1}}">
+          <view class="task-hd">
+            <image src="{{task.errander.head_image}}"></image>
+          </view>
+          <view class="task-bd">
+            <view class="task-title"> 
+              {{task.errander.nickname}}
+            </view>
+            
+            <view class="task-classify"> 
+              {{task.name}}
+            </view>
+          </view>
+          <view class="task-ft" catchtap="toComplaint" data-content="{{task}}" data-index="{{index}}">
+            <view style="margin-bottom:5px;">投诉 ></view>
+            <image catchtap="deleteItems" data-id="{{task.id}}" data-index="{{index}}"  src="../../../images/laji.png" style="width:20px;height:20px;"></image>
+          </view>
+        </view>
+      
+    </block>
+  </view>
+</block>
+<block wx:if="{{curNavbar==3}}">
+  <view class="task-list">
+    <block wx:for="{{tasks}}" wx:key="key" wx:for-item="task" wx:for-index="index">
+      
+        <view class="task-item" bindtap="toDetail" data-id="{{task.id}}">
+          <view class="task-bd">
+            <view class="task-title"> 
+              {{task.name}}
+            </view>
+            
+            <view class="task-status" wx:if="{{task.status=='待收货'&&task.errand_status=='确认送达'}}">待买家确认</view>
+            <view class="task-status" wx:else>
+              {{task.cha_wish_time}}
+            </view>
+            <view class="task-operate">
+              <text wx:if="{{task.pay_status=='已支付'&&task.errand_status=='待送达'}}" catchtap="err_confirm" data-id="{{task.id}}" data-index="{{index}}">确认送达</text>
+              <text class="dim" wx:if="{{task.status=='待收货'&&task.errand_status=='确认送达'}}">已送达</text>
+              <text wx:if="{{task.pay_status=='未支付' && task.wait_buyer_enter==1 && task.item_cost==0}}" catchtap="wufei_confirm" data-content="{{task}}">确认物费</text>
+              <text wx:if="{{task.pay_status=='未支付' && task.wait_buyer_enter==1 && task.item_cost==null}}" catchtap="wufei_confirm" data-content="{{task}}">确认物费</text>
+              <text class="dim" wx:if="{{task.pay_status=='未支付' && task.item_cost!=0 && task.wait_buyer_enter==1&&task.item_cost!=null}}" catchtap="wufei_confirm" data-id="{{task.id}}">物费待支付</text>
+              
+                打赏￥{{task.give_price}}
+            </view>
+          </view>
+        </view>
+      
+    </block>
+  </view>
+</block>
+<block wx:if="{{curNavbar==4}}">
+  <view class="task-list">
+    <block wx:for="{{tasks}}" wx:key="key" wx:for-item="task" wx:for-index="index">
+     
+        <view class="task-item" bindtap="toDetail" data-id="{{task.id}}" wx:if="{{ task.show == 1}}">
+          <view class="task-hd">
+            <image src="{{task.user.head_image}}"></image>
+          </view>
+          <view class="task-bd">
+            <view class="task-title"> 
+              {{task.user.nickname}}
+            </view>
+            <view class="task-classify"> 
+              {{task.name}}
+            </view>
+          </view>
+          <view class="task-ft" catchtap="toComplaint" data-content="{{task}}" data-index="{{index}}">
+            <view style="margin-bottom:5px;">投诉 ></view>
+            <image catchtap="deleteItems" data-id="{{task.id}}" data-index="{{index}}"  src="../../../images/laji.png" style="width:20px;height:20px;"></image>
+          </view>
+        </view>
+    </block>
+  </view>
+</block>
+<view class="summary" hidden="{{reachBottom}}">我也是有底线的</view>

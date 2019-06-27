@@ -1,0 +1,72 @@
+<view class="navbar">
+  <view wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="item"
+  bindtap="navbarTap">
+    <view>{{item}}</view>
+  </view>
+</view>
+
+<!-- 兼职显示列表 -->
+<view class="task-list" wx:if="{{currentTab==0}}">
+  <block wx:for="{{list}}" wx:for-item="item" wx:key="item" wx:for-index="index">
+    <view  bindtap='saveinfo' data-reason="{{item.type}}" data-txt="{{item.reason}}">
+      <view class="task-item">
+        <view class="task-hd">
+          <image src="../../../images/custman.jpg"></image>
+        </view>
+        <view class="task-bd">
+          <view class="task-title" wx:if="{{myself.user.type=='个人'}}" >
+            {{item.company.name}}
+          </view>
+          <view class="task-title" wx:if="{{myself.user.type=='企业'}}">
+            {{item.other_user.nickname}}
+          </view>
+          <view class="task-classify">
+            {{item.project.name}}
+          </view>
+          <view class="task-price">原因：{{item.type}}</view>
+        </view>
+        <view class="task-status">{{item.status}}</view>
+        <!-- 已录用 -->
+        <view class='affirm' wx:if="{{item.status =='已录用'&&myself.type=='个人'}}">确认收款</view>
+        <!-- 已结算 -->
+        <navigator url='../complaint/index?id={{item.user_id}}&ProjectId={{item.project_id}}'  class='clear' wx:if="{{item.status =='已结算'}}">投诉
+          <image src='../../../images/gt.png' mode='widthFix'></image>
+        </navigator>
+        <!-- <view class="time-remain">剩余30分钟</view> -->
+      </view>
+    </view>
+  </block>
+</view>
+
+
+<view class="task-list" wx:if="{{currentTab==1}}">
+  <block wx:for="{{list}}" wx:for-item="item" wx:key="item" wx:for-index="index">
+    <view  bindtap='saveinfo' data-reason="{{item.type}}" data-txt="{{item.reason}}" wx:if="{{item.status!='审核中'}}">
+      <view class="task-item">
+        <view class="task-hd">
+          <image src="../../../images/custman.jpg"></image>
+        </view>
+        <view class="task-bd">
+          <view class="task-title" wx:if="{{myself.user.type=='个人'}}" >
+            {{item.company.name}}
+          </view>
+          <view class="task-title" wx:if="{{myself.user.type=='企业'}}">
+            {{item.other_user.nickname}}
+          </view>
+          <view class="task-classify">
+            {{item.project.name}}
+          </view>
+          <view class="task-price">原因：{{item.type}}</view>
+        </view>
+        <!-- <view class="task-status">{{item.status}}</view> -->
+        <!-- 已录用 -->
+        <view class='affirm' wx:if="{{item.status =='已录用'&&myself.type=='个人'}}">确认收款</view>
+        <!-- 已结算 -->
+        <navigator url='../complaint/index?id={{item.user_id}}&ProjectId={{item.project_id}}'  class='clear' wx:if="{{item.status =='已结算'}}">投诉
+          <image src='../../../images/gt.png' mode='widthFix'></image>
+        </navigator>
+        <!-- <view class="time-remain">剩余30分钟</view> -->
+      </view>
+    </view>
+  </block>
+</view>

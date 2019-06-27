@@ -1,0 +1,14 @@
+<form bindsubmit='postForm'>
+<view class='container '>
+  <view class='title'>邮箱</view>
+  <input placeholder='请输入您的收件邮箱' placeholder-class="phcolor" name='email'></input>
+  <view class='line'></view>
+
+  <view class='title'>反馈内容</view>
+  <textarea placeholder-class="phcolor" placeholder='请输入您的详细反馈信息...' name='content'></textarea>
+</view>
+
+<view class='bottom-btn'>
+    <button class='btn' form-type='submit'>发送</button>
+</view>
+</form>

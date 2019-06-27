@@ -1,0 +1,29 @@
+<import src="../../../wxParse/wxParse.wxml"/>
+<form bindsubmit='postForm'>
+  <view class='container '>
+    <view class='title'>企业名称</view>
+    <input placeholder='{{myself.company.name}}'  value='{{myself.company.name}}' placeholder-class="phcolor" name='company'></input>
+    <view class='line'></view>
+
+    <view class='title'>联系人</view>
+    <input placeholder='{{myself.company.contact_man}}' value='{{myself.company.contact_man}}' placeholder-class="phcolor" name='name'></input>
+    <view class='line'></view>
+
+    <view class='title'>联系人电话</view>
+    <input placeholder='{{myself.company.mobile}}' value='{{myself.company.mobile}}' placeholder-class="phcolor" name='mobile'></input>
+    <view class='line'></view>
+
+    <view class='title'>联系地址</view>
+    <input placeholder='{{myself.company.detail}}' value='{{myself.company.detail}}' placeholder-class="phcolor" name='add'></input>
+    <view class='line'></view>
+
+    <view class='title'>企业简介</view>
+    <textarea  placeholder-class="phcolor" value='{{myself.company.intro}}'  placeholder='请输入企业介绍信息...' name='intr'></textarea>
+    <view class='line'></view>
+  </view>
+
+
+  <view class='bottom-btn'>
+     <button class='btn' form-type='submit'>保存</button>
+  </view>
+</form>

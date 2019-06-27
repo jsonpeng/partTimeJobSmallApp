@@ -1,0 +1,39 @@
+<!--pages/2/index/detail.wxml-->
+
+<view class="task-detail">
+  <view class="task-main">
+    <view class="title">
+      <view class="task-name">{{task.name}}</view>
+      <view class="task-status">待接</view>
+    </view> 
+    <view class="task-content">
+      <view class="expect-time">期望送达时间：<text>{{task.current_wish_time}}</text><text style="margin-left:50rpx;" wx:if="{{task.status=='已发布'}}">{{task.cha_remain_time}}</text></view>
+      <view>联系电话：{{task.mobile}}</view>
+      <view>送货地址：{{task.address}}</view>
+      <view>备注：</view>
+      <view class="remark" wx:if="{{task.remark==null}}">无</view>
+      <view class="remark" wx:else>{{task.remark}}</view>
+      <view class="weui-uploader__bd">
+        <view class="weui-uploader__files" id="uploaderFiles">
+          <block wx:for="{{ task.images }}" wx:key="key" wx:for-index="index">
+            <view class="weui-uploader__file" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" bindtap="previewImage" bindlongtap='delImage' data-index="{{ index }}">
+              <image class="weui-uploader__img" src="{{ item.url }}" mode="aspectFill" />
+            </view>
+          </block>
+        </view>
+      </view>
+      <view wx:if="{{task.price_type=='无需额外费用'}}">无需额外费用</view>
+      <view wx:elif="{{task.wait_buyer_enter==0}}">物品费用：￥{{task.item_cost}}</view>
+      <view wx:else>物品费用：待买手确认</view>
+      <view class="total">打赏￥{{task.give_price}}
+        <text>合计：￥{{task.pay_price}}</text>
+      </view>
+       <!-- <view class="time-remain">剩余<text wx:if="{{task.remain_time_hour!=0}}">{{task.remain_time_hour}}小时</text>{{task.remain_time_min}}分钟</view>  -->
+    </view>
+  </view>
+  <button class="btn" bindtap="takeIn" disabled="{{task.wait_buyer_enter==1? true : false}}">
+    立即支付
+  </button>
+</view>
+
+

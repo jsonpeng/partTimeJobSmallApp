@@ -1,0 +1,33 @@
+<!--pages/2/index/detail.wxml-->
+<view class="task-detail">
+  <view class="task-main">
+    <view class="title">
+      <view class="task-name">{{task.name}}</view>
+      <view class="task-status" wx:if="{{task.status=='已发布'}}">待接</view>
+      <view class="task-status" wx:else>已接</view>
+    </view> 
+    <view class="task-content">
+      <view class="task-price">打赏￥{{task.give_price}}</view>
+      <view class="expect-time">期望送达时间：{{task.current_remain_time}} <text style="margin-left:50rpx;" wx:if="{{task.status=='已发布'}}">{{task.cha_remain_time}}</text></view>
+      <view>联系电话：***********</view>
+      <view>送货地址：{{task.address}}</view>
+      <view>备注：</view>
+      <view class="remark" wx:if="{{task.remark==null}}">无</view>
+      <view class="remark" wx:else>{{task.remark}}</view>
+      <view class="weui-uploader__bd">
+        <view class="weui-uploader__files" id="uploaderFiles">
+          <block wx:for="{{ task.images }}" wx:key="key" wx:for-index="index">
+            <view class="weui-uploader__file" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" bindtap="previewImage" bindlongtap='delImage' data-index="{{ index }}">
+              <image class="weui-uploader__img" src="{{ item.url }}" mode="aspectFill" />
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="btn" bindtap="takeIn" wx:if="{{task.status=='已发布'}}">
+    接单
+  </view>
+  
+</view>
+

@@ -1,0 +1,116 @@
+<!--pages/1/index/detail.wxml-->
+<view class='intr'>
+  <!-- <view class='company'>{{details.company.name}}</view> -->
+  <view class='company'>{{details.jianzhi.name}}</view>
+  <view class='pirce'>
+    <text>{{details.jianzhi.money}}</text>元/{{details.jianzhi.time_set}}</view>
+  <view class='supplement'>
+    <text>{{details.jianzhi.time_type}}结</text>
+    <text>|</text>
+    <text>{{details.jianzhi.name}}</text>|
+    <text></text>
+    <text>{{details.jianzhi.view}}次浏览</text>
+  </view>
+</view>
+
+<view class='add'>
+  <image class='bg' src='../../../images/title.png' mode='widthFix'></image>
+  <view class='box'>
+    <view class='weui-cell site' catchtap='showMap'>
+      <text class='weui-cell__bd'>{{details.jianzhi.address}}</text>
+      <image class='locaiton weui-cell__ft' src='../../../images/location.png' mode='widthFix'></image>
+    </view>
+  </view>
+
+</view>
+<view class='time container'>
+  <view class='data'>开始
+    <text>{{details.jianzhi.current_start_time}}</text> —— 结束
+    <text>{{details.jianzhi.current_end_time}}</text>
+  </view>
+  <!-- <view class='hours'>上午
+    <text>{{details.jianzhi.morning_start_time}}-{{details.jianzhi.morning_end_time}}</text> —— 下午
+    <text>{{details.jianzhi.afternoon_start_time}}-{{details.jianzhi.afternoon_end_time}}</text>
+  </view> -->
+</view>
+
+<view class='require container'>
+  <view class='titile'>
+    <image class='leftPic' src='../../../images/shot-bar.png' mode='widthFix'></image>
+    <text>招聘要求</text>
+    <view class='line'></view>
+  </view>
+  <view class='text'>招聘人数：
+    <text>{{details.jianzhi.rec_num}}</text>
+  </view>
+  <view>性别要求:
+    <text>{{details.jianzhi.sex_need}}</text>
+  </view>
+  <view>工作时间：
+    <text>{{details.jianzhi.morning_start_time}}至{{details.jianzhi.morning_end_time}} </text>
+  </view>
+</view>
+
+<view class='contents container'>
+  <view class='titile'>
+    <image class='leftPic' src='../../../images/shot-bar.png' mode='widthFix'></image>
+    <text>工作内容</text>
+    <view class='line'></view>
+  </view>
+  <view class='text'>{{details.jianzhi.detail}}</view>
+
+  <view class="pic-show-list">
+
+    <block wx:for="{{ details.jianzhi.images }}" wx:key="itemimages" wx:for-item="itemimages" wx:for-index="imageindex">
+      <view class="pic-show">
+        <view class="img" bindtap='previewImage' data-index="{{ index }}" data-imageindex="{{ imageindex }}">
+          <image src="{{ itemimages.url }}" alt=""></image>
+        </view>
+      </view>
+    </block>
+
+  </view>
+
+</view>
+
+<view class='info container'>
+  <view class='titile'>
+    <image class='leftPic' src='../../../images/shot-bar.png' mode='widthFix'></image>
+    <text>企业信息</text>
+    <view class='line'></view>
+  </view>
+   <navigator class='weui-cell weui-cell_access' url="../company/index?companyId={{details.jianzhi.id}}"> 
+  <!-- <view class='weui-cell weui-cell_access'> -->
+    <view class='weui-cell__hd'>
+      <view class='img'>
+        <image src='../../../images/custman.jpg' mode='widthFix'></image>
+      </view>
+    </view>
+    <view class='weui-cell__bd'>
+      <view class='units'>{{details.company.name}}</view>
+      <view class='name'>联系人：{{details.company.contact_man}}</view>
+      <view class='name' wx:if="{{details.jianzhi.show_commit}}">联系电话：{{details.company.mobile}}</view>
+    </view>
+    <view class='weui-cell__ft weui-cell__ft_in-access'></view>
+  <!-- </view> -->
+   </navigator> 
+</view>
+
+<view class='bottom-btn' >
+  <view class='btn' bindtap='showForm' wx:if="{{details.jianzhi.status !='已撤销'&&source!='个人'&&source!='企业' && details.jianzhi.user_id != details.user.id }}">立即报名</view>
+  <view class='btn cancel' wx:if="{{details.jianzhi.status=='已撤销'}}">已撤销</view>
+</view>
+
+<!-- 自我介绍弹出层 -->
+<view class='share-code item-mask' style="height:100%" wx:if="{{ ifShow }}">
+  <view class="item-mark2" bindtap='hideForm'></view>
+  <view class='user_info'>
+    <form bindsubmit='postForm'>
+      <view class='head'>自我描述</view>
+      <input placeholder='姓名' placeholder-class="phcolor" name="name"></input>
+      <input placeholder='电话' placeholder-class="phcolor" name="mobile" value='{{mobile}}'></input>
+      <textarea placeholder='写一段自我描述信息，可以提高您的录取率' placeholder-class="phcolor" name='intr' fixed="true" maxlength='50'></textarea>
+      <button form-type='submit'>提交</button>
+    </form>
+  </view>
+</view>

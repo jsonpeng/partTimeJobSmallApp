@@ -1,0 +1,182 @@
+<!--pages/release/index.wxml-->
+<import src="../../../template/tabbar.wxml" />
+<!-- 个人用户无发布权限 -->
+<view class='noJurisdiction' wx:if="{{myself.type=='个人'||myself.type=='企业'&&company==''}}">
+  <image src='../../../images/lock.png' mode='widthFix'></image>
+  <text>请联系管理员开通权限</text>
+
+  <template is="tabBar" data="{{ tabBar:tabBar }}"></template>
+</view>
+
+
+<view class='Jurisdiction' wx:if="{{myself.type=='企业'&&company!=''}}">
+  <form bindsubmit='postForm'>
+    <view class="nav_tip">
+      <view class="img">
+        <view wx:if="{{ type !=0 }}" bindtap='back'>
+          <image class="mail" id="mail" src="../../../images/back.png"></image>
+        </view>
+      </view>
+      <view class="titile">发布</view>
+    </view>
+    <view class='container '>
+      <view class='title'>兼职名称</view>
+      <input placeholder='请输入兼职名称' placeholder-class="phcolor" name='name' value='{{name}}'></input>
+      <view class='line'></view>
+
+      <view class='title'>结算周期</view>
+      <!-- <checkbox-group bindchange="checkboxChange">
+    <label class="checkbox" wx:for="{{items}}">
+      <checkbox value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+    </label>
+  </checkbox-group> -->
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{items}}" wx:key="item">
+          <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.value}}结
+        </label>
+      </radio-group>
+      <view class='line'></view>
+
+      <view class='title'>时间类型</view>
+      <!-- <checkbox-group bindchange="checkboxChange">
+    <label class="checkbox" wx:for="{{items}}">
+      <checkbox value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+    </label>
+  </checkbox-group> -->
+      <radio-group class="radio-group" bindchange="jobsTypeChange">
+        <label class="radio" wx:for="{{jobsType}}" wx:key="item">
+          <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.value}}
+        </label>
+      </radio-group>
+      <view class='line'></view>
+
+      <view class='title'>兼职类型</view>
+      <!-- <checkbox-group bindchange="checkboxChange">
+    <label class="checkbox" wx:for="{{items}}">
+      <checkbox value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+    </label>
+  </checkbox-group> -->
+      <radio-group class="checkbox-group" bindchange="TypeChange">
+        <label class="checkbox" wx:for="{{TypeList}}" wx:key="item">
+          <radio value="{{item.id}}" checked="{{item.checked}}" data-typeId="{{item.id}}" />{{item.name}}
+        </label>
+      </radio-group>
+      <view class='line'></view>
+
+      <view class='title'>工资金额（元）</view>
+      <input placeholder='请输入工资金额' type="digit" placeholder-class="phcolor" name='price' value='{{price}}'></input>
+      <radio-group class="radio-group" bindchange="unitChange">
+        <label class="radio" wx:for="{{units}}" wx:key="item">
+          <radio value="{{item}}" checked="{{item.checked}}" />{{item}}
+        </label>
+      </radio-group>
+      <view class='line'></view>
+
+      <view class='title'>招聘人数</view>
+      <input placeholder='请输入招聘人数' placeholder-class="phcolor" name='num' value='{{num}}'></input>
+      <view class='line'></view>
+
+
+      <view class='title'>性别要求</view>
+      <!-- <checkbox-group bindchange="checkboxChange">
+    <label class="checkbox" wx:for="{{items}}">
+      <checkbox value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+    </label>
+  </checkbox-group> -->
+      <radio-group class="radio-group" bindchange="boxChange">
+        <label class="radio" wx:for="{{genders}}" wx:key="item">
+          <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.value}}
+        </label>
+      </radio-group>
+      <view class='line'></view>
+
+      <view class='title'>工作内容</view>
+      <textarea placeholder-class="phcolor" maxlength='500' placeholder='请输入详细工作内容及工作时间' name='things' value='{{things}}'></textarea>
+      <view class="weui-uploader__bd">
+        <view class="weui-uploader__files" id="uploaderFiles">
+          <block wx:for="{{ post_images }}" wx:key="*this" wx:for-index="index">
+            <view class="weui-uploader__file" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" bindtap="previewImage" bindlongtap='delImage' data-index="{{ index }}" id="{{item}}">
+              <block wx:if="{{item}}">
+                <image class="weui-uploader__img" src="{{ item }}" mode="aspectFill" />
+                <image src="../../../images/cha.png" class="cha" catchtap="delImage"></image>
+              </block>
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class='addPic' bindtap="chooseImageTap" wx:if="{{ post_images.length < 6  }}">+ 添加照片</view>
+      <view class='line'></view>
+
+      <view class='title'>兼职开始日期</view>
+      <input placeholder='请输入时间' placeholder-class="phcolor" name='morning_start_time' value='{{morning_start_time}}'></input>
+      <picker class="weui-btn" mode="date" value="{{date}}" start="{{nowDate}}" end="" bindchange="bindmorning_start_time">
+        <button type="default">日期选择器</button>
+      </picker>
+      <view class='line'></view>
+
+      <view class='title'>兼职结束日期</view>
+      <input placeholder='请输入时间' placeholder-class="phcolor" name='afternoon_end_time' value='{{afternoon_end_time}}'></input>
+      <picker class="weui-btn" mode="date" value="{{date}}" start="{{tomorrow}}" end="" bindchange="bindafternoon_end_time">
+        <button type="default">日期选择器</button>
+      </picker>
+      <view class='line'></view>
+      <view class='title'>工作时间</view>
+      <view class="calender-box">
+        <view>
+          <picker mode="time" value="{{startime}}" start="00:00" end="24:00" bindchange="starttime">
+            <!-- <input placeholder="请输入上班时间" focus="{{focus}}"    value='{{starttime}}'/> -->
+            <view>{{starttime?starttime:'请输入上班时间'}}</view>
+          </picker>
+        </view>
+        <view>
+          <picker mode="time" value="{{endtime}}" start="00:00" end="24:00" bindchange="endtime">
+            <!-- <input placeholder="请输入下班时间"  focus="{{focus}}"   value='{{endtime}}'/> -->
+            <view>{{endtime?endtime:'请输入下班时间'}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class='line'></view>
+      <view class='title'>工作地点</view>
+      <!-- <input placeholder='请输入工作地点' placeholder-class="phcolor" name='add'></input> -->
+      <view class='weui-cell'>
+        <view class='weui-cell__bd'>
+           <input placeholder="请选择您的具体位置" value='{{address}}' hidden='{{true}}' readonly = "readonly" focus="{{focus}}" bindinput='taskInput' name='add' data-type="address" data-model="task" class='address' /> 
+          <view>{{address?address:'请选择工作地点'}}</view>
+        </view>
+        <view class='weui-cell__ft'>
+          <image src="../../../images/loca.jpg" class='location' mode='widthFix' bindtap="chooseMap"></image>
+        </view>
+      </view>
+      <view class='line'></view>
+
+
+      <view class='title'>联系人</view>
+      <input placeholder='请输入联系人' placeholder-class="phcolor" name='contact' value='{{contact}}'></input>
+      <view class='line'></view>
+
+      <!-- <view class='title'>上午结束时间</view>
+      <input placeholder='请输入时间' placeholder-class="phcolor" name='morning_end_time' value='{{morning_end_time}}'></input>
+      <picker class="weui-btn" mode="time" value="{{time}}" start="00:00" end="12:00" bindchange="bindmorning_end_time">
+        <button type="default">时间选择器</button>
+      </picker>
+      <view class='line'></view>
+
+
+      <view class='title'>下午开始时间</view>
+      <input placeholder='请输入时间' placeholder-class="phcolor" name='afternoon_start_time' value='{{afternoon_start_time}}'></input>
+      <picker class="weui-btn" mode="time" value="{{time}}" start="12:00" end="23:59" bindchange="bindafternoon_start_time">
+        <button type="default">时间选择器</button>
+      </picker>
+      <view class='line'></view> -->
+
+
+      <view class='title'>联系电话</view>
+      <input placeholder='请输入联系电话' placeholder-class="phcolor" name='phone' value='{{phone}}'></input>
+      <view class='line'></view>
+    </view>
+
+    <view class='bottom-btn'>
+      <button class='btn' form-type='submit'>提交</button>
+    </view>
+  </form>
+</view>

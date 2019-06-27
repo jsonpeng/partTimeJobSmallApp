@@ -1,0 +1,40 @@
+<!--pages/index/index.wxml-->
+<import src="../../../template/tabbar.wxml"  />
+
+<view class="page-header">
+  <view class="get-back" bindtap="goBack"> 
+    <image src="../../../images/back.png"></image>
+  </view>
+  <view style="font-size:36rpx;">校缘</view>
+  <view style="opacity:0;"></view>
+</view>
+<view class="cur-addr" bindtap="toSel">
+  {{selSchool.name}}
+  <image src="../../../images/local.png"></image>
+</view> 
+<view class="task-list">
+  <block wx:for="{{tasks}}" wx:key="key" wx:for-index="index"  wx:for-item="task" > 
+    <view class="task-item" bindtap="toDetail" data-index="{{index}}">
+      <view class="task-hd">
+        <image src="{{task.user.head_image}}"></image>
+      </view>
+      <view class="task-bd">
+        <view class="task-title"> 
+          {{task.name}}
+        </view>
+        <view class="task-classify"> 
+          {{task.price_type}}
+        </view>
+        <view class="task-price">打赏￥{{task.give_price}}</view>
+      </view>
+      <block wx:if="{{task.status=='已发布'}}">
+        <view class="task-status" >待接</view>
+        <view class="time-remain">{{task.cha_remain_time}}</view>
+      </block>
+      <view class="task-status" wx:else>已接</view>
+    </view>
+  </block>
+</view>
+<view class="summary" hidden="{{reachBottom}}">我也是有底线的</view>
+<template is="tabBar" data="{{ tabBar:tabBar }}"></template>
+

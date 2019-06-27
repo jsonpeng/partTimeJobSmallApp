@@ -1,0 +1,102 @@
+<!--pages/2/paotui/my-wallet.wxml-->
+<view class="my-wallet">
+   <view class="title">
+    
+    我的钱包
+  </view> 
+  <view class="balance">当前余额（元）</view>
+  <view class="num">{{user.user_money}}</view>
+  <view class="toCash" bindtap="toCash">提现</view>
+</view>
+<view class="pay-detail">
+  <view class="title">
+    <view class="navbar-item {{curNavbar==index? 'active' : ''}}" wx:for="{{navbar}}" wx:key="key" wx:for-index="index" bindtap="switchTab" data-index="{{index}}">{{item}}</view>
+  </view>
+  <view class="task-list" wx:if="{{curNavbar==0}}">
+    <!-- <block wx:for="{{refund_log}}" wx:key="key">
+      <view class="task-item">
+        <view class="task-hd">
+          <image src="{{user.head_image}}"></image>
+        </view>
+        <view class="task-bd">
+          <view class="task-title"> 
+            {{item.reason}}
+          </view>
+          <view class="task-classify"> 
+            {{item.content}}
+          </view>
+          <view class="task-price">{{item.format_time}}</view>
+        </view>
+        <view class="task-profit">+{{item.price}}</view>
+      </view>
+    </block> -->
+    <block wx:for="{{errand_log}}" wx:key="key">
+      <view class="task-item" wx:if="{{item.content}}">
+        <view class="task-hd">
+          <image src="{{user.head_image}}"></image>
+        </view>
+        <view class="task-bd">
+          <view class="task-title"> 
+            {{item.reason}}
+          </view>
+          <view class="task-classify"> 
+            {{item.content}}
+          </view>
+          <view class="task-price">{{item.format_time}}</view>
+        </view>
+        <view class="task-profit">+{{item.price}}</view>
+      </view>
+      <view class="task-item" wx:else>
+        <view class="task-hd">
+          <image src="{{item.errander.head_image}}"></image>
+        </view>
+        <view class="task-bd">
+          <view class="task-title"> 
+            {{item.errander.nickname}}
+          </view>
+          <view class="task-classify"> 
+            {{item.name}}
+          </view>
+          <view class="task-price">{{item.format_time}}</view>
+        </view>
+        <view class="task-profit">+{{item.errander_get_price}}</view>
+      </view>
+    </block>
+    
+  </view>
+  <view class="task-list" wx:if="{{curNavbar==1}}">
+    <block wx:for="{{publish_log}}" wx:key="key">
+      <view class="task-item">
+        <view class="task-hd">
+          <image src="{{item.errander.head_image}}"></image>
+        </view>
+        <view class="task-bd">
+          <view class="task-title"> 
+            {{item.errander.nickname}}
+          </view>
+          <view class="task-classify"> 
+            {{item.name}}
+          </view>
+          <view class="task-price">{{item.format_time}}</view>
+        </view>
+        <view class="task-profit">-{{item.pay_price}}</view>
+      </view>
+    </block>
+  </view>
+  <view class="task-list" wx:if="{{curNavbar==2}}">
+    <block wx:for="{{withdraw_log}}" wx:key="key">
+      <view class="task-item">
+        
+        <view class="task-bd">
+          <view class="task-title"> 
+            提现{{item.price}}元
+          </view>
+          <view class="task-classify"> 
+            {{item.created_at}}
+          </view>
+        </view>
+        <view class="task-profit">{{item.status}}</view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,112 @@
+/* pages/1/ask/ask.wxss */
+.navbar{
+  display:flex;
+  background-color: #fff;
+  border-bottom: 1px solid #d6d6d6;
+}
+.navbar .item{
+  flex:1;
+  text-align: center;
+  padding:0 15px;
+  font-size: 15px;
+}
+.navbar .item view{
+  height:70rpx;
+  line-height: 70rpx;
+  /* padding:15px 6px; */
+}
+.navbar .active view{
+  color:#fb5800;
+  border-bottom: 6rpx solid #fb5800;
+}
+
+/* 兼职信息列表 */
+.title{padding:10rpx 15px;background-color: #fff;}
+.title image{width: 26rpx;}
+.task-item {
+  background-color: #fff;
+  margin-top: 6rpx;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.task-item .task-hd {
+  margin-right: 28rpx;
+  width: 110rpx;
+  height: 110rpx;
+  line-height: 110rpx;
+  text-align: center;
+}
+
+.task-item .task-hd image {
+  width: 100%;
+  max-height: 100%;
+  vertical-align: top;
+}
+
+.task-item .task-bd {
+  max-width: 360rpx;
+}
+
+.task-item .task-bd .task-title {
+  font-size: 28rpx;
+  /* font-weight: bold; */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.task-item .task-bd .task-classify {
+  font-size: 28rpx;
+  color: #999;
+  margin: 8rpx 0;
+}
+
+.task-item .task-bd .task-price {
+  font-size: 28rpx;
+  color: #fb5d15;
+  font-weight: bold;
+}
+
+.task-status {
+  position: absolute;
+  right: 30rpx;
+  top: 30rpx;
+  font-size: 24rpx;
+  color: #b2b2b2;
+}
+
+.time-remain {
+  position: absolute;
+  bottom: 30rpx;
+  right: 30rpx;
+  font-size: 28rpx;
+  color: #b2b2b2;
+}
+.task-item .affirm{
+  position: absolute;
+  top: 20rpx;
+  right: 30rpx;
+  font-size: 28rpx;
+  border: 1px solid #fb5d15;
+  padding:0 10rpx;
+  border-radius: 10rpx;
+  color: #fb5d15;
+}
+
+.task-item .clear{
+  position: absolute;
+  /* bottom: 80rpx; */
+  right: 30rpx;
+  font-size: 28rpx;
+  padding:0 10rpx;
+  border-radius: 10rpx;
+  color: #ccc;
+}
+.task-item .clear image{width: 15rpx;}
+.task-status.task-cancel{top:40px;border: 1px solid #fb5d15;color: #fb5d15;padding:0 4px;border-radius: 3px;} 
+.task-status.canceled{top:35px;border: 1px solid #999;color: #999;padding:0 4px;border-radius: 3px;}
+.task-status.laji{border: 0;top:65px;}
+.task-status.laji image{width:20px;}

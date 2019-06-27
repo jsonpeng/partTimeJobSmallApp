@@ -1,0 +1,11 @@
+<!--pages/2/paotui/complaint-detail.wxml-->
+<view class='container '>
+    <view class='title'>投诉原因</view>
+    <view class='reason'>{{complaint_task.type}}</view>
+    <view class='line'></view>
+
+    <view class='title'>投诉内容</view>
+    <view class='txt'>{{complaint_task.reason}}</view>
+
+    <!-- <view class='addPic' bindtap="chooseImageTap" wx:if="{{ post_images.length < 6  }}">+ 添加照片</view> -->
+  </view>

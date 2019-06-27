@@ -1,0 +1,9 @@
+/* pages/1/complaint/index.wxss */
+page{background-color: #fff;padding-bottom:120rpx;}
+.line{border-top:1px solid #e5e5e5;margin:30rpx 0;}
+.title{margin-bottom:10rpx;font-size: 30rpx;}
+textarea{box-sizing:border-box;padding:20rpx;width: 100%;height:100%165rpx;background-color: #f6f6f6;margin-bottom: 10rpx;}
+.phcolor{color: #b2b2b2;font-size: 30rpx;}
+.bottom-btn{position: fixed;width: 100%;bottom: 0;left: 0;background-color: #f6f6f6;}
+.bottom-btn .btn{float: right;width: 25%;background:#ff640a;color:#fff;line-height: 100rpx;height: 100rpx;text-align: center;font-size: 32rpx;font-weight: bold;}
+.addPic{display: inline-block;border: 1px solid #949494;border-radius: 6rpx;color: #949494;}

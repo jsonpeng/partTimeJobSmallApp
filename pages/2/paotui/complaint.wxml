@@ -1,0 +1,58 @@
+<!--pages/2/paotui/complaint.wxml-->
+<view class="navbar">
+  <view wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="item"
+  bindtap="navbarTap">
+    <view>{{item}}</view>
+  </view>
+</view>
+<!-- 兼职显示列表 -->
+<view class="task-list">
+  
+    <block wx:for="{{complaint}}" wx:key="key" wx:if="{{currentTab==0}}" wx:for-index="index">
+      <view class="task-item" bindtap="toDetail" data-content="{{item}}" data-index="{{index}}">
+        <view class="task-hd">
+          <image src="{{user.head_image}}" wx:if="{{item.publisher.id==user.id}}"></image>
+          <image src="{{item.publisher.head_image}}" wx:else></image> 
+        </view>
+        <view class="task-bd">
+          <view class="task-title"> 
+            {{item.task.name}}
+          </view>
+          <view class="task-classify"> 
+            {{item.type}}
+          </view>
+          <view class="task-price">原因：{{item.reason}}</view>
+        </view>
+        <view class="task-status">{{item.status}}</view>
+        <!-- 已录用 -->
+        <!-- <view class='affirm'>确认收款</view> -->
+        <!-- 已结算 -->
+        <!-- <navigator url='../complaint/index' class='clear'>投诉 <image src='../../../images/gt.png' mode='widthFix'></image></navigator> -->
+        <!-- <view class="time-remain">剩余30分钟</view> -->
+      </view>
+    </block>
+    <block wx:for="{{complaint}}" wx:key="key" wx:if="{{currentTab==1}}" >
+      <view class="task-item" bindtap="toDetail" data-index="{{index}}" wx:if="{{item.status=='已通过'}}">
+        <view class="task-hd">
+          <image src="{{user.head_image}}" wx:if="{{item.publisher.id==user.id}}"></image>
+          <image src="{{item.publisher.head_image}}" wx:else></image> 
+        </view>
+        <view class="task-bd">
+          <view class="task-title"> 
+            {{item.task.name}}
+          </view>
+          <view class="task-classify"> 
+            {{item.type}}
+          </view>
+          <view class="task-price">原因：{{item.reason}}</view>
+        </view>
+        <!-- 已录用 -->
+        <!-- <view class='affirm'>确认收款</view> -->
+        <!-- 已结算 -->
+        <!-- <navigator url='../complaint/index' class='clear'>投诉 <image src='../../../images/gt.png' mode='widthFix'></image></navigator> -->
+        <!-- <view class="time-remain">剩余30分钟</view> -->
+      </view>
+    </block>
+</view>
+
+

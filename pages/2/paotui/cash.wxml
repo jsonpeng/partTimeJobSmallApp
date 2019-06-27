@@ -1,0 +1,23 @@
+<!--pages/2/paotui/cash.wxml-->
+<view class="main">
+  <!-- <view class="section" style="margin-bottom:10px;">
+    <view>支付宝账号</view>
+    <input placeholder='请输入您的支付宝账号' data-type="accout" bindinput="cashInput" type="number"/>
+  </view> -->
+  <view class="section">
+    <view>提现余额(元)</view>
+    <view class="input-money">
+      <label style="color:#000;font-size:64rpx;">￥</label>
+      <input value='{{cash}}' type="digit" bindinput='cashInput' data-type="cash" />
+    </view>
+  </view>
+  <view class="section" style="margin-top:10px;">
+    <view>支付宝账号</view>
+    <input placeholder='请输入您的支付宝账号' data-type="accout" bindinput="cashInput" type="number"/>
+  </view>
+  <view class="hint">
+    <text style="color:#999;">可用余额{{user.user_money}}元</text>
+    <view style="color:#fb6f26;" bindtap="cashAll">全部提现</view>
+  </view>
+  <button class="btn {{cash==null||'' ? '' : 'dark'}}" type="default"  bindtap="confirm" disabled='{{cash==null ? true : false}}'>确认</button>
+</view>

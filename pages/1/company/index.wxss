@@ -1,0 +1,19 @@
+/* pages/1/company/index.wxss */
+@import "../../../wxParse/wxParse.wxss";
+ page{background-color: #f5f5f5;} 
+ .weui-cell{background-color: #fff;}
+.company_name{font-size: 30rpx;font-weight: bold;}
+.weui-cell::before{border-top:0;} 
+.left_bar{color: #999;font-size: 30rpx;width: 5em;}
+.right_bar{font-size: 28rpx;color: #333;}
+.leftPic{
+  width:8rpx;
+  margin-right:10rpx;
+}
+.titile{padding:10px 15px;margin-top: 10rpx;background-color: #fff;font-size: 30rpx;font-weight: bold;color: #999;}
+.content{background-color: #fff;padding: 10px 15px;color: #333;}
+.head{background-color: #f9f9f9;}
+.head .weui-cell__hd image{width: 90rpx;}
+.head .weui-cell__hd{margin-left:30rpx;margin-right: 40rpx;}
+.head .weui-cell__bd image{width: 105rpx;}
+.line .weui-cell__bd{border-top:1px solid #e4e4e4;}

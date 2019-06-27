@@ -1,0 +1,95 @@
+@import "common/weui.wxss";
+page {
+  font-family: '-apple-system', "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
+  background-color: #f8f8f8;
+  font-size: 14px;
+  color: #333;
+}
+image{
+  vertical-align: middle;
+}
+.page-header{
+  background-color: #ff640a;
+  font-size:36rpx;
+  color:#fff;
+  text-align: center;
+  height:90rpx;
+  line-height: 90rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0 30rpx;
+}
+.page-header view:first-child{
+  flex:1;
+  text-align: left;
+}
+.page-header view:last-child{
+  flex:1;
+  font-size:32rpx;
+  text-align: right;
+}
+.get-back image{
+  width:18rpx;
+  height:32rpx;
+}
+.container{padding:20rpx 30rpx;}
+/* 弹出层样式 */
+.item-mask {
+  position: fixed;
+  /* top: 0; */
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999999;
+}
+.item-mark2 {
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* 自定义底部菜单栏 */
+.tab-bar{width: 100%;bottom:0;left:0;display:flex;align-items: center;align-content:center;background-color:#fefefe;z-index: 1000;}
+.tab-bar .menu-item{flex: 1;text-align: center;padding: 3px;}
+.tab-bar .menu-item.active{color:#ff4e44;}
+.tab-bar .menu-item .img{position: relative;width:20px;height: 20px;margin: 0 auto;margin-bottom:0;}
+.tab-bar .menu-item image{display:block;width: 100%;height: 100%;}
+.tab-bar .menu-item text{font-size:14px;}
+
+
+/* 九宫格图片展示 */
+ .pic-show-list {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+ .pic-show-list .pic-show {
+  width: 32.5%;
+  margin-bottom: 1.25%;
+}
+ .pic-show-list .img {
+  width: 100%;
+  height: 0px;
+  padding-bottom: 100%;
+  position: relative;
+}
+ .pic-show-list .img image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+ .pic-show-list:after {
+  content: "";
+  width: 32.5%;
+}
+.bottom-btn{z-index: 1000;}

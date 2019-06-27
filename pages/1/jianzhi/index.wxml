@@ -1,0 +1,78 @@
+<!--pages/common/myself.wxml-->
+<view class="user-center">
+  <view class="user-info">
+    <view class="title">个人中心</view>
+    <view class="main">
+      <view class="touxiang">
+        <image src="../../../images/head.png"></image>
+      </view>
+      <view class="left">
+        <view>Puppy</view>
+        <navigator url='../integral/index'>信誉积分：5分></navigator>
+      </view>
+       <view class="line"></view> 
+      <!-- 普通用户 -->
+       <view class="right">
+        <view>普通用户</view>
+        <navigator url='../apply/index'>申请为企业></navigator>
+      </view> 
+      <!-- 普通用户 -->
+    </view>
+  </view>
+  <!-- 企业信息 -->
+  <view class='enterprise'>
+      <image src='../../../images/info.jpg' mode='widthFix'></image>
+      <view class='content'>
+          <view class='head'>企业信息</view>
+          <view class='text'>完善简历提高您的信任率</view>
+          <navigator url='../enterpriseInfo/index'>去完善</navigator>
+      </view>
+  </view>
+  <!-- 企业信息 -->
+
+  <view class="menu-list">
+    <navigator class="menu-item" url='../ask/ask'>
+      <image src="../../../images/menu-1.png"></image>
+      <view>已发布</view>
+    </navigator>
+    <navigator class="menu-item" url='../ask/ask'>
+      <image src="../../../images/c1.png"></image>
+      <view>已报名</view>
+    </navigator>
+    <navigator class="menu-item" url='../ask/ask'>
+      <image src="../../../images/c2.png"></image>
+      <view>已录用</view>
+    </navigator>
+    <navigator class="menu-item" url='../ask/ask'>
+      <image src="../../../images/c3.png"></image>
+      <view>已结算</view>
+    </navigator>
+  </view>
+  <view class="link-list">
+    <navigator url='../complaint/manage' class="link-item weui-cell weui-cell_access">
+      <view class='weui-cell__hd'>
+        <image class='pic' src='../../../images/tip.png' mode='widthFix'></image>
+      </view>
+      <view class='weui-cell__bd'>投诉管理</view>
+      <view class='weui-cell__ft weui-cell__ft_in-access'></view>
+    </navigator>
+    <view class='line'></view>
+
+    <navigator url='../complaint/manage' class="link-item weui-cell weui-cell_access">
+      <view class='weui-cell__hd'>
+        <image class='pic' src='../../../images/kefu.png' mode='widthFix'></image>
+      </view>
+      <view class='weui-cell__bd'>客服中心</view>
+      <view class='weui-cell__ft weui-cell__ft_in-access'></view>
+    </navigator>
+    <view class='line'></view>
+
+    <navigator url='../opinion/index' class="link-item weui-cell weui-cell_access">
+      <view class='weui-cell__hd'>
+        <image class='pic' src='../../../images/mail.png' mode='widthFix'></image>
+      </view>
+      <view class='weui-cell__bd'>意见反馈</view>
+      <view class='weui-cell__ft weui-cell__ft_in-access'></view>
+    </navigator>
+  </view>
+</view>

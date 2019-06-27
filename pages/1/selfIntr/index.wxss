@@ -1,0 +1,9 @@
+/* pages/1/selfIntr/index.wxss */
+page{background-color: #edebeb;}
+.box{background-color: #fff;box-sizing: border-box;margin:30rpx;border-radius: 15rpx;}
+.titile{padding:15px 15px 5px 15px;color: #333;}
+.titile image{width:30rpx;margin-left: 30rpx;}
+.intr{color: #999;padding:15px 15px 45px 15px;}
+.btn{display: flex;justify-content:center;border-top: 1px solid #ededed;}
+.btn text{flex: 1;text-align: center;height:90rpx;line-height: 90rpx;}
+.pass{color: #fb5d15;}

@@ -1,0 +1,36 @@
+<!--pages/start/start.wxml-->
+<image class='bg_img' src='../../images/start.jpg' bindtap="hidePop"></image>
+  <view class='part-time'  >
+      <button   data-type="1"  bindgetphonenumber="getPhoneNumber"  hover-class="btn-hover"  open-type="getPhoneNumber" wx:if="{{user.mobile==null||user.mobile==''}}">   
+        <!-- <view> -->
+        <image src='../../images/start1.png' mode='widthFix'></image>
+        <!-- </view> -->
+       </button> 
+       <button   data-type="1" bindtap="errand" wx:else>   
+        <!-- <view> -->
+        <image src='../../images/start1.png' mode='widthFix'></image>
+        <!-- </view> -->
+       </button> 
+  </view> 
+  <view class='errand'>
+       <button   data-type="2"  bindgetphonenumber="getPhoneNumber"  hover-class="btn-hover"  open-type="getPhoneNumber" wx:if="{{user.mobile==null||user.mobile==''}}">   
+        <!-- <view> -->
+        <image src='../../images/start2.png' mode='widthFix'></image>
+        <!-- </view> -->
+       </button> 
+       <button   data-type="2" bindtap="errand" wx:else>   
+        <!-- <view> -->
+        <image src='../../images/start2.png' mode='widthFix'></image>
+        <!-- </view> -->
+       </button> 
+  </view>
+
+  
+  <view class="input-box" hidden="{{inputMobile}}">
+      <image src="../../images/cat.png"></image>
+      <input placeholder='手机号' data-type="mobile" data-model="mobile" bindinput="mobileInput"></input>
+      <view class="tip">注意：请输入您的手机号,以便与他人联系</view>
+      <view class="btn" bindtap="confirm">确认</view>
+  </view> 
+  
+    

@@ -1,0 +1,14 @@
+<template name="tabBar">  
+  <view class="flex-h flex-hsb tab-bar" style="position:fixed;background-color:#fff;">  
+  <block wx:for="{{tabBar.list}}" wx:key="pagePath" wx:index="index">  
+    <navigator url="{{item.pagePath}}" open-type="switchTab" class="menu-item {{ item.active ? 'active' :'' }}" style="{{item.active? 'color: '+(item.selectedColor? item.selectedColor : tabBar.selectedColor) : ''}}">
+      <view class='img'>
+            <text class="weui-badge" id="cart_num" wx:if="{{ index==2 && tabBar.num > 0}}">{{ tabBar.num }}</text>
+            <image src="{{item.selectedIconPath}}" wx:if="{{item.active}}"></image>  
+            <image src="{{item.iconPath}}" wx:if="{{!item.active}}"></image>  
+      </view>  
+      <text>{{item.text}}</text>  
+    </navigator>  
+    </block>  
+  </view>  
+</template> 

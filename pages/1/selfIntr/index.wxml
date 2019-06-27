@@ -1,0 +1,11 @@
+<!--pages/1/selfIntr/index.wxml-->
+<view class='box'>
+    <view class='titile'>自我描述</view>
+    <view class='intr'>{{intr}}</view>
+    <view class='titile' data-reply-phone="{{mobile}}" bindtap="phoneCall">{{mobile}} <image src='../../../images/tel.png' mode='widthFix'></image></view>
+    <view class='btn' wx:if="{{state=='已报名'}}" >
+        <text class='pass' bindtap='pass'>通过</text>
+        <text>|</text>
+        <text class='fail' bindtap='refuse'>不合适</text>
+    </view>
+</view>

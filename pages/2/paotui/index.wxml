@@ -1,0 +1,75 @@
+<!--pages/jianzhi/index.wxml-->
+<view class="user-center">
+  <view class="user-info">
+    <view class="title">个人中心</view>
+    <view class="main">
+      <view class="touxiang">
+        <image src="{{user.head_image}}"></image>
+      </view>
+      <view class="info">
+        <view class="left">
+          <view>{{user.nickname}}</view>
+          <view>信誉积分：<text bindtap="look_integral">{{user.credits}}分 ></text></view>
+        </view>
+        <view class="right">
+          <view class="right-box">
+            <view>{{user.user_money}}元</view>
+            <view bindtap="toWallet">我的钱包 ></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="selType">
+    <text bindtap="selType" class="{{myType=='买手' ? 'dark' : ''}}">我是买家</text> / <text class="{{myType=='买家' ? 'dark' : ''}}" bindtap="selType">我是买手</text>
+  </view>
+  <view class="menu-list">
+    <block wx:if="{{myType=='买家'}}" wx:for="{{menus1}}" wx:key="key" wx:for-index="index">
+      <view class="menu-item" bindtap="navigateTo" data-index="{{index}}">
+        <image src="{{item.src}}"></image>
+        <view class="{{index==3||index==4 ? 'dark' : '' }}" data-index="{{index}}">{{item.name}}</view>
+      </view> 
+    </block> 
+     <block wx:if="{{myType=='买手'}}"  wx:for="{{menus2}}" wx:key="key" wx:for-index="index">
+      <view class="menu-item" bindtap="navigateTo" data-index="{{index}}">
+        <image src="{{item.src}}"></image>
+        <view class="{{index==0||index==1||index==2 ? 'dark' : '' }}" data-index="{{index}}">{{item.name}}</view>
+      </view> 
+    </block>  
+  </view>
+  <view class="link-list">
+    <navigator url="../paotui/complaint">
+      <view class="link-item">
+        <view class="hd">
+          <image src="../../../images/tousu.png"></image>
+        </view>
+        <view class="bd">
+          <text>投诉管理</text>
+          <image src="../../../images/gt.png"></image>
+        </view>
+      </view>
+    </navigator>
+    <navigator url="../paotui/complaint">
+      <view class="link-item">
+        <view class="hd">
+          <image src="../../../images/tousu.png"></image>
+        </view>
+        <view class="bd">
+          <text>客服中心</text>
+          <image src="../../../images/gt.png"></image>
+        </view>
+      </view>
+    </navigator>
+    <navigator url="../paotui/feedback">
+      <view class="link-item">
+        <view class="hd">
+          <image src="../../../images/tousu.png"></image>
+        </view>
+        <view class="bd">
+          <text>意见反馈</text>
+          <image src="../../../images/gt.png"></image>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>

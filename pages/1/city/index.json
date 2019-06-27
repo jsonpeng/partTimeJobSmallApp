@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "list-html": "/component/wx-index-list/wx-index-list"
+  },
+    "navigationBarTitleText": "城市选择",
+    "navigationBarBackgroundColor": "#ff640a",
+    "navigationBarTextStyle": "#fff"
+}

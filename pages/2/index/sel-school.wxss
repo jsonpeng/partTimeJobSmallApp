@@ -1,0 +1,17 @@
+/* pages/2/index/sel-school.wxss */
+page{
+  background-color: #f2f2f2;
+}
+.school{
+  padding:35rpx 30rpx;
+  font-size:30rpx;
+  color:#000;
+  background-color:#fff;
+  margin-top:6rpx;
+}
+.summary{
+  color:#999;
+  font-size:26rpx;
+  text-align: center;
+  padding:30rpx;
+}

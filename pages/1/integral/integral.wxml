@@ -1,0 +1,36 @@
+<view class="weui-cell title">
+  <view class='weui-cell__bd'>积分:{{user.credits}}</view>
+  <view class='weui-cell__ft' bindtap='showList'>{{default_type}}
+    <image src='../../../images/down.png' mode='widthFix'></image>
+    <view class='popup' wx:if="{{showPopup}}">
+      <block wx:for="{{types}}" wx:key="key">
+        <view catchtap='hideList' data-cont="{{item}}">{{item}}</view>
+      </block>
+        <!-- <view class='arrow'></view> -->
+    </view>
+  </view>
+</view>
+<view class="summarys">
+  <view class='weui-cell subtotal'>
+    <view class='weui-cell__hd'>
+      <image src='../../../images/bar.png' mode='widthFix'></image>
+    </view>
+    <view class='weui-cell__bd'>
+      {{switchDate}}
+    </view>
+    <view class='weui-cell__ft'>
+      <image src="../../../images/calender.jpg" mode='widthFix' bindtap="toCalender"></image>
+    </view> 
+    
+  </view>
+  <view class="summary">获得：<text style="color:#fb6b33; margin-right:20rpx;">{{huode}}</text> 扣除：<text>{{kouchu}}</text></view>
+</view>
+<block wx:for="{{creditsList}}" wx:for-item="item" wx:key="item" wx:for-index="index">
+<view class='weui-cell detail'>
+  <view class='weui-cell__bd'>
+    <view class='intr'>{{item.reason}}，{{item.type}}积分</view>
+    <view class='date'>{{item.updated_at}}</view>
+  </view>
+  <view class='weui-cell__ft'>{{item.type=='扣除'?'-':'+'}}{{item.num}}</view>
+</view>
+</block>

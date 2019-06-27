@@ -1,0 +1,38 @@
+<view class="navbar">
+  <view wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="item"
+  bindtap="navbarTap">
+    <view>{{item}}</view>
+  </view>
+</view>
+
+
+<!-- 分类筛选 -->
+<view class='weui-cell choose' wx:if="{{hasChoose}}">
+    <view class='weui-cell__bd'>门店导购</view>
+    <view class='weui-cell__ft'>12人 <image src='../../../images/arrow1.png' mode='widthFix'></image></view>
+</view>
+<!-- 兼职显示列表 -->
+<view class="task-list">
+  <navigator url="../index/detail">
+    <view class="task-item">
+      <view class="task-hd">
+        <image src="../../../images/custman.jpg"></image>
+      </view>
+      <view class="task-bd">
+        <view class="task-title"> 
+          武汉尚酷时装有限公司
+        </view>
+        <view class="task-classify"> 
+          门店导购
+        </view>
+        <view class="task-price">80元/天</view>
+      </view>
+      <view class="task-status">审核中</view>
+      <!-- 已录用 -->
+      <view class='affirm'>确认收款</view>
+      <!-- 已结算 -->
+      <navigator url='../complaint/index' class='clear'>投诉 <image src='../../../images/gt.png' mode='widthFix'></image></navigator>
+      <!-- <view class="time-remain">剩余30分钟</view> -->
+    </view>
+  </navigator>
+</view>

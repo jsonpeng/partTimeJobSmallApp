@@ -1,0 +1,223 @@
+<!--pages/common/myself.wxml-->
+<import src="../../template/tabbar.wxml" />
+
+<view class="user-center" wx:if="{{type==1}}">
+  <view class="user-info">
+    <view class="title">个人中心</view>
+    <view class="main">
+      <view class="touxiang">
+        <image src="{{myself.user.head_image}}"></image>
+      </view>
+      <view class="left">
+        <view>{{myself.user.nickname}}</view>
+        <view class='phone' bindtap="changePhone" wx:if="{{myself.user.mobile==null}}">
+          联系电话
+          <image src="../../images/edit.png"></image>
+        </view>
+        <view class='phone' bindtap="changePhone" wx:else>
+          {{myself.user.mobile}}
+          <image src="../../images/edit.png"></image>
+        </view>
+        <navigator url='../1/integral/integral'>信誉积分：{{myself.user.credits}}分></navigator>
+      </view>
+      <view class="line" wx:if="{{type == 2||myself.user.type=='个人'}}"></view>
+      <!-- 校缘 -->
+      <view class="right" wx:if="{{type == 2}}">
+        <view class="right-box">
+          <view>82.00元</view>
+          <view bindtap="toWallet">我的钱包 ></view>
+        </view>
+      </view>
+      <!-- 校缘 -->
+      <!-- 普通用户 -->
+      <view class="right" wx:if="{{type ==1&& myself.user.type=='个人'}}">
+        <view>普通用户</view>
+        <navigator url='../1/apply/index'>申请为企业></navigator>
+      </view>
+      <!-- 普通用户 -->
+    </view>
+  </view>
+  <!-- 企业信息 -->
+  <view class='enterprise' wx:if="{{type ==1&& myself.user.type=='企业'&&myself.user.company!=''}}">
+    <image src='../../images/info.jpg' mode='widthFix'></image>
+    <view class='content'>
+      <view class='head'>企业信息</view>
+      <view class='text'>完善简历提高您的信任率</view>
+      <navigator url='../1/enterpriseInfo/index'>去完善</navigator>
+    </view>
+  </view>
+  <!-- 企业信息 -->
+
+  <view class="menu-list" wx:if="{{type ==1&& myself.user.type=='个人'}}">
+    <navigator class="menu-item" url="../1/ask/ask?status=已报名">
+      <image src="../../images/c1.png"></image>
+      <view>已报名</view>
+    </navigator>
+    <navigator class="menu-item" url="../1/ask/ask?status=已录用">
+      <image src="../../images/c2.png"></image>
+      <view>已录用</view>
+    </navigator>
+    <navigator class="menu-item" url="../1/ask/ask?status=已结算">
+      <image src="../../images/c3.png"></image>
+      <view>已结算</view>
+    </navigator>
+  </view>
+  <view class='weui-cell tip' wx:if="{{type ==1&& myself.user.type=='企业'}}">我要招人</view>
+  <!-- 企业用户选择 -->
+  <view class="menu-list" wx:if="{{type ==1&& myself.user.type=='企业'}}">
+    <navigator class="menu-item" url='../1/ask/ask?status=已发布'>
+      <image src="../../images/menu1.png"></image>
+      <view>已发布</view>
+    </navigator>
+    <navigator class="menu-item" url='../1/ask/ask?status=已报名'>
+      <image src="../../images/c1.png"></image>
+      <view>已报名</view>
+    </navigator>
+    <navigator class="menu-item" url='../1/ask/ask?status=已录用'>
+      <image src="../../images/c2.png"></image>
+      <view>已录用</view>
+    </navigator>
+    <navigator class="menu-item" url='../1/ask/ask?status=已结算'>
+      <image src="../../images/c3.png"></image>
+      <view>已结算</view>
+    </navigator>
+  </view>
+
+
+  <view class='weui-cell tip' wx:if="{{type ==1&& myself.user.type=='企业'}}">我要报名</view>
+  <view class="menu-list" wx:if="{{type ==1&& myself.user.type=='企业'}}">
+    <navigator class="menu-item" url="../1/ask/detail?status=已报名">
+      <image src="../../images/c1.png"></image>
+      <view>已报名</view>
+    </navigator>
+    <navigator class="menu-item" url="../1/ask/detail?status=已录用">
+      <image src="../../images/c2.png"></image>
+      <view>已录用</view>
+    </navigator>
+    <navigator class="menu-item" url="../1/ask/detail?status=已结算">
+      <image src="../../images/c3.png"></image>
+      <view>已结算</view>
+    </navigator>
+  </view>
+  <!-- 企业用户选择 -->
+  <view class="link-list">
+    <navigator url='../1/complaint/manage' class="link-item weui-cell weui-cell_access">
+      <view class='weui-cell__hd'>
+        <image class='pic' src='../../images/tip.png' mode='widthFix'></image>
+      </view>
+      <view class='weui-cell__bd'>投诉管理</view>
+      <view class='weui-cell__ft weui-cell__ft_in-access'></view>
+    </navigator>
+    <view class='line'></view>
+
+    <button class="link-item weui-cell weui-cell_access" open-type="contact" session-from="weapp">
+      <view class='weui-cell__hd'>
+        <image class='pic' src='../../images/kefu.png' mode='widthFix'></image>
+      </view>
+      <view class='weui-cell__bd'>客服中心</view>
+      <view class='weui-cell__ft weui-cell__ft_in-access'></view>
+    </button>
+    <view class='line'></view>
+
+    <navigator url='../1/opinion/index' class="link-item weui-cell weui-cell_access">
+      <view class='weui-cell__hd'>
+        <image class='pic' src='../../images/mail.png' mode='widthFix'></image>
+      </view>
+      <view class='weui-cell__bd'>意见反馈</view>
+      <view class='weui-cell__ft weui-cell__ft_in-access'></view>
+    </navigator>
+  </view>
+</view>
+<!-- 校缘个人中心 -->
+<view wx:if="{{type==2}}">
+  <view class="user-center">
+    <view class="user-info">
+      <view class="title">个人中心</view>
+      <view class="main">
+        <view class="touxiang">
+          <image src="{{user.head_image}}"></image>
+        </view>
+        <view class="info">
+          <view class="left">
+            <view>{{user.nickname}}</view>
+            <view class='phone' bindtap="changePhone">
+              {{user.mobile}}
+              <image src="../../images/edit.png"></image>
+            </view>
+            <view>信誉积分：<text bindtap="look_integral">{{user.credits}}分 ></text></view>
+          </view>
+          <view class="right">
+            <view class="right-box">
+              <view>{{user.user_money}}元</view>
+              <view bindtap="toWallet">我的钱包 ></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="selType">
+      <text bindtap="selType" class="{{myType=='买手' ? 'dark' : ''}}">我是买家</text> / <text class="{{myType=='买家' ? 'dark' : ''}}" bindtap="selType">我是买手</text>
+    </view>
+    <view class="menu-list">
+      <block wx:if="{{myType=='买家'}}" wx:for="{{menus1}}" wx:key="key" wx:for-index="index">
+        <view class="menu-item" bindtap="navigateTo" data-index="{{index}}" wx:if="{{index==0||index==1||index==2}}">
+          <image src="{{item.src}}"></image>
+          <view>{{item.name}}</view>
+        </view> 
+        <view class="menu-item" data-index="{{index}}" wx:else>
+          <image src="{{item.src}}"></image>
+          <view class="dark">{{item.name}}</view>
+        </view>
+      </block> 
+      <block wx:if="{{myType=='买手'}}"  wx:for="{{menus2}}" wx:key="key" wx:for-index="index">
+        <view class="menu-item" bindtap="navigateTo" data-index="{{index}}" wx:if="{{index==3||index==4}}">
+          <image src="{{item.src}}"></image>
+          <view>{{item.name}}</view>
+        </view> 
+        <view class="menu-item" data-index="{{index}}" wx:else>
+          <image src="{{item.src}}"></image>
+          <view class="dark">{{item.name}}</view>
+        </view>
+      </block>  
+    </view>
+    <view class="link-list">
+      <navigator url="../2/paotui/complaint">
+        <view class="link-item">
+          <view class="hd">
+            <image src="../../images/tousu.png"></image>
+          </view>
+          <view class="bd">
+            <text>投诉管理</text>
+            <image src="../../images/gt.png"></image>
+          </view>
+        </view>
+      </navigator>
+      <button open-type="contact" session-from="weapp" style="background-color:transparent;padding:0;line-height:1.6;color:#333;font-size:28rpx;">
+        <view class="link-item">
+          <view class="hd">
+            <image src="../../images/kefu.png"></image>
+          </view>
+          <view class="bd">
+            <text>客服中心</text>
+            <image src="../../images/gt.png"></image>
+          </view>
+        </view>
+      </button>
+      <navigator url="../2/paotui/feedback">
+        <view class="link-item">
+          <view class="hd">
+            <image src="../../images/mail.png"></image>
+          </view>
+          <view class="bd">
+            <text>意见反馈</text>
+            <image src="../../images/gt.png"></image>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+</view>
+
+<view class='support'>芸来软件提供技术支持</view>
+<template is="tabBar" data="{{ tabBar:tabBar }}"></template>

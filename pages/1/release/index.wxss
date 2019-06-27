@@ -1,0 +1,102 @@
+/* pages/release/index.wxss */
+.noJurisdiction {height: 100vh;display: flex;flex-direction:column;align-items: center; justify-content:center;}
+.noJurisdiction image{width:150rpx;margin-bottom: 20rpx;}
+.noJurisdiction text{font-size: 30rpx;color: #d1d1d1;}
+page{background-color: #fff;padding-bottom:120rpx;}
+.line{border-top:1px solid #e5e5e5;margin:30rpx 0;}
+label{margin-right: 60rpx;}
+.radio-group{margin-top:20rpx;}
+.title{margin-bottom:10rpx;font-size: 30rpx;}
+
+.bottom-btn{position: fixed;width: 100%;bottom: 0;left: 0;background-color: #f6f6f6;}
+.bottom-btn .btn{float: right;width: 25%;background:#ff640a;color:#fff;line-height: 100rpx;height: 100rpx;text-align: center;font-size: 32rpx;font-weight: bold;}
+/* radio样式重置 */
+
+radio .wx-radio-input{
+  background: #ededed;
+  width: 38rpx;
+  height: 38rpx;
+}
+radio .wx-radio-input.wx-radio-input-checked{
+  background:#fff !important;
+  border-color:#c9c9c9 !important;
+}
+radio .wx-radio-input.wx-radio-input-checked::before{
+  color: #09bb07;
+}
+
+textarea{box-sizing:border-box;padding:20rpx;width: 100%;height:100%165rpx;background-color: #f6f6f6;margin-bottom: 10rpx;}
+.phcolor{color: #b2b2b2;font-size: 30rpx;}
+.addPic{display: inline-block;border: 1px solid #949494;border-radius: 6rpx;color: #949494;}
+.nav_tip {
+  padding: 0 15px;
+  background-color: #ff640a;
+  line-height: 44px;
+  position: relative;
+  text-align: center;
+  color: #fff;
+}
+
+.nav_tip .img {
+  position: absolute;
+  left: 15px;
+  
+}
+.nav_tip .img view{
+  text-align: left;
+  width:50px;
+}
+.nav_tip .img image {
+  width: 10px;
+  height: 14px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.nav_tip .titile {
+  font-size: 15px;
+  color: #fff;
+}
+.location{width:30rpx;}
+.weui-cell{padding:0px 0;}
+.weui-cell::before{border-top:0;} 
+.sel-time{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:#fff;
+  padding:16rpx 20rpx;
+  font-size:26rpx;
+  border-bottom:1rpx solid #d9d9dd;
+}
+.calender-box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.calender-box view{
+  background-color:#f2f2f5;
+  flex:1;
+  text-align: center;
+}
+.calender-box view:first-child{
+  margin-right:10rpx;
+}
+.calender-box view input{
+  text-align: center;
+}
+.weui-uploader__file{
+  position:relative;
+}
+.cha{
+  position:absolute;
+  right:0;
+  top:0;
+  width:24rpx;
+  height:24rpx;
+  z-index:10;
+}
+.tab-bar .menu-item.active text{
+  color: #ff580a;
+}
+address{display: none;}

@@ -1,0 +1,12 @@
+/* pages/2/paotui/pay.wxss */
+.main{
+  padding-left:30rpx;
+  border-top:1px solid #e7e7e7;
+  background-color: #fff;
+}
+.section{
+  padding:18rpx 0;
+  line-height: 50rpx;
+  font-size: 30rpx;
+  border-bottom:1px solid #e5e5e5;
+}

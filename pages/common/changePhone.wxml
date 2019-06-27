@@ -1,0 +1,14 @@
+<!--pages/common/changePhone.wxml-->
+<view class="page-header">
+  <view class="get-back" bindtap="goBack"> 
+    <image src="../../../images/back.png"></image>
+  </view>
+  <view style="font-size:36rpx;">电话更改</view>
+  <view bindtap="save">保存</view>
+</view>
+<view class="main">
+  <view class="section">
+    <view>手机号码</view>
+      <input placeholder="请输入您的手机号码" type="number" maxlength='11' value='' data-type="mobile" data-model="mobile" bindinput="mobileInput" />
+  </view>
+</view>

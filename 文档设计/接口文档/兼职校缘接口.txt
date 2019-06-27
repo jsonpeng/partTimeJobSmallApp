@@ -1,0 +1,197 @@
+﻿后台地址:https://jianzhi.book.kaimusoft.xyz/zcjy
+账号:admin@foxmail.com
+密码:zcjy123
+1.兼职
+
+1.1 兼职首页
+
+1.1.1	根据获取到的用户省份获取对应省份的id
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/part_job/get_province_id_by_name?name=湖北省
+请求参数:name省份名称 name不可为空
+
+1.1.2	根据省份的id获取到对应省份下的城市
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/part_job/cities_list?pid=180
+请求参数:pid省份id pid不可为空
+
+1.1.3	根据选择后的城市获取对应的区域
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/part_job/cities_list?pid=200
+请求参数:pid城市id pid不可为空
+
+1.1.4	获取所有兼职类型
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/part_job/type_all
+请求参数:无
+
+1.1.5	获取所有兼职列表 带条件索引
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/part_job/list_all?skip=0&take=1&type_id=0&length_type=短期兼职&district=0&query=家教
+请求参数:
+   skip跳过多少个 可不传默认是0
+	 take一次拿多少个 可不传默认是后台配置的数量
+	 type_id 兼职类型id 可不传默认是0获取所有兼职类型
+	 length_type 兼职时间类型 可不传
+	 district  地区选择id 可不传
+   city      城市选择id 可不传
+	 query    增加查询关键字 可不传
+
+1.1.6  根据兼职id获取兼职详情
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/part_job/detail/{id}
+请求参数:id 兼职id不传或者传不存在的返回对应错误提示
+
+1.1.7 用户发起兼职报名 需要用户登录后发起
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/part_job/auth_publish_sign?token=登陆后获取的token值&project_id=1&name=姓名&self_des=自我介绍
+请求参数:token登录成功后的凭证 project_id兼职id name报名人姓名 self_des自我介绍不得超过150个字 以上参数均需要传
+
+1.2 用户个人中心
+
+1.2.1  用户个人中心查看报名/录用/结算的兼职 需要用户登录后发起
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/part_job/auth_signs?token=登陆后获取的token值&status=已报名
+请求参数:token登录成功后的凭证 status 报名状态 有已报名 已录用 已结算 已拒绝 四个状态可查 以上参数均需要传
+
+1.2.2 申请为企业用户 需要用户登录后发起
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/part_job/auth_apply_company?token=登陆后获取的token值&name=企业名称&mobile=联系电话&detail=企业详细地址&intro=企业介绍&province=省份id&city=城市id&district=区域id&lat=纬度&lon=经度&company_images=[数组图片链接]
+请求参数:token登录成功后的凭证 name mobile必须要传 其他的选传
+
+1.2.3 个人投诉企业
+请求地址:http://jianzhi.book.kaimusoft.xyz/api/part_job/auth_error_company/{project_id}?token=M19IaXBlUGVuZ18xNTMwNjY3MDkx&type=1&reason=1
+请求参数: project_id兼职id token登录成功后的凭证 type 原因 reason详细描述必须要传 
+
+1.2.4 用户确认兼职收款
+请求地址:http://jianzhi.book.kaimusoft.xyz/api/part_job/enter_project_price/{project_sign_id}?token=M19IaXBlUGVuZ18xNTMwNjY3MDkx
+请求参数: project_sign_id 兼职报名id 不是兼职id token登录成功后的凭证
+
+1.3	企业用户 只有类型是企业的用户才可以操作
+
+1.3.1	用户完善企业信息
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/part_job/auth_complete_company_info?token=登陆后获取的token值&name=企业名称&mobile=企业联系人电话
+请求参数:token登录成功后的凭证 name 企业名称 mobile联系人电话 以上参数均需要传
+
+1.3.2	企业用户获取发布的招聘信息
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/part_job/auth_publish_companys?token=登陆后获取的token值&status=通过
+请求参数:token登录成功后的凭证 status 状态 有   '审核中','通过','不通过' 几个状态可查 以上参数均需要传
+
+1.3.3	企业用户更新单个招聘人员信息
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/part_job/auth_update_project_sign/{id}?token=登陆后获取的token值&status=已录用
+请求参数:id 兼职招聘用户的id token登录成功后的凭证 status 报名状态 有'已录用','已拒绝'两个状态可选 以上参数均需要传
+
+1.3.4	企业用户发布新的招聘兼职信息
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/part_job/auth_publish_project?token=登陆后获取的token值&
+请求参数:token登录成功后的凭证'name','money','type' ,'detail','mobile','address','rec_num','project_images' 以上参数均需要传
+
+1.3.5 	企业用户投诉个人
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/part_job/company_error_auth/{user_id}?token=登陆后获取的token值&project_id=兼职项目id
+请求参数:user_id 兼职招聘用户的id token登录成功后的凭证 project_id 兼职id
+
+1.3.6   企业用户获取对应兼职招聘的报名名单
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/part_job/publish_project_sign/{project_id}?token=登陆后获取的token值&status=状态
+请求参数:project_id 对应兼职的id token登录成功后的凭证 project_id 兼职id status 可以是已报名 已录用 已结算
+
+
+#共有的用户部分
+
+#1	用户登录
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/mini_program/login?userInfo=小程序wx.getUserInfo后获取的信息&jindu=114&weidu=30
+请求参数:userInfo=小程序wx.getUserInfo后获取的信息 jindu weidu wx.openlocation获取到的经纬度
+
+#2	获取用户详细信息
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/mini_program/me?token=登录后获取的登录凭证
+请求参数:token登录成功后的凭证 
+
+#3	上传图片 请求方法是POST
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/mini_program/upload_images?token=登录后获取的登录凭证
+请求参数:token登录成功后的凭证 
+
+#4 	意见反馈
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/mini_program/publish_feedback?token=登录后获取的登录凭证&email=邮箱号&content=反馈内容
+请求参数:token登录成功后的凭证 email 邮箱 content 反馈内容
+
+#5	用户个人的积分信用记录
+请求地址:http://jianzhi.book.kaimusoft.xyz/api/mini_program/credit_logs?token=M19IaXBlUGVuZ18xNTMwNjY3MDkx&type=%E6%89%A3%E9%99%A4&skip=0&take=10&time_type=month
+请求参数:token 标识 type 扣除/获得/全部 不传也是全部 skip跳过多少个 take 单次取多少 time_type 时间统计方式 默认不传是一个月内的 week一周内 month 一个月内 custom 自定义时间段 time_start 开始时间 time_end结束时间
+
+#6  用户收到的投诉/发起的投诉
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/mini_program/publish_and_receive_error/{platform_type}?token=登录后获取的登录凭证&skip=0&take=10&send_type=发起
+请求参数:platform_type 平台必须要传 ,part_job是兼职平台的投诉 errand是校购平台的投诉
+        token登录成功后的凭证 
+        skip 跳过多少个
+        take 一次拿多少个
+        send_type 发起/收到
+
+2.校缘跑腿
+
+2.1 校缘跑腿首页
+
+2.1.1 选择学校后添加学校 需要token和登录
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/errand/select_and_add_school?token=登录后获取的登录凭证&skip=0&take=10
+请求参数:   'name', 	学校名称
+           'province',  省份
+           'city',	城市
+           'district',	区域
+           'address',	地址
+           'lon',	纬度
+           'lat'	经度
+
+2.1.2 获取所有的任务模板
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/errand/all_tems
+请求参数:无
+
+2.1.3 发布跑腿任务 需要用户登录
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/errand/publish_task?token=登录后获取的登录凭证
+请求参数:token登录成功后的凭证 以下参数为必须参数
+	      'name' => 'required',
+        'give_price' => 'required',
+        'wish_time_hour' => 'required',
+        'wish_time_minute' => 'required',
+        'mobile' => 'required',
+        'tem_word1' => 'required',
+        'tem_word2' => 'required',
+        'address' => 'required',
+        'lat' => 'required',
+        'lon' => 'required',
+        'school_name' => 'required'
+
+2.1.4 对应学校的跑腿任务
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/errand/school_tasks?school_name=武汉大学
+请求参数:school_name 学校名称 必须传
+
+2.1.5 买手接单
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/errand/take_order_task/{id}?token=登录后获取的登录凭证
+请求参数:id 任务id ，token登录成功后的凭证
+
+2.1.6 买手确认送达
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/errand/enter_arrive_task/{id}?token=登录后获取的登录凭证
+请求参数:id 任务id ，token登录成功后的凭证
+
+2.1.7 发布人确认收货
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/errand/enter_receive_task/{id}?token=登录后获取的登录凭证
+请求参数:id 任务id ，token登录成功后的凭证
+
+2.1.8 买手确认物品费用
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/errand/enter_item_cost_task/{id}?token=登录后获取的登录凭证&item_cost=5
+请求参数:id 任务id ，token登录成功后的凭证 ,item_cost 物品费用
+
+2.1.9 发布者/买手的任务列表 
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/errand/tasks/{type?}?token=登录后获取的登录凭证&status=已发布&skip=0&take=15
+请求参数:type 可以是 publisher(发布者) errander(买手) ，token登录成功后的凭证 , status 已发布 待收货 已收货  待送达 已收款 skip一次跳过多少数据 take一次拿多少数据
+
+2.2.0 发布者发起任务支付
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/errand/pay_task/{id}?token=登录后获取的登录凭证
+请求参数:id 任务id ，token登录成功后的凭证
+
+2.2.1 发布者的跑腿/发起任务记录（个人中心收入明细）
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/errand/my_task_log?token=M19IaXBlUGVuZ18xNTMwNjY3MDkx&skip=0&take=10
+请求参数:token登录成功后的凭证 skip一次跳过多少数据 take一次拿多少数据
+
+2.2.2 发布人删除任务
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/errand/del_task/{id}?token=M19IaXBlUGVuZ18xNTMwNjY3MDkx
+请求参数:id 跑腿任务id token 登录成功后的凭证 
+
+2.2.3 投诉任务 发起者/买手
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/errand/error_task/{id}/{type}?token=M19IaXBlUGVuZ18xNTMwNjY3MDkx&type=1&reason=1
+请求参数:id 跑腿任务id token 登录成功后的凭证 type 如果是publisher就是任务发起者投诉买手 用户发起 买手收到 如果是errander就是买手发起 用户收到 type投诉原因 reason投诉内容
+
+2.2.4 跑腿任务详情
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/errand/task_detail/{id}
+请求参数:id 跑腿任务id 
+
+2.2.5 用户发起提现
+请求地址:https://jianzhi.book.kaimusoft.xyz/api/errand/publish_withdraw?token=xx&price=1
+请求参数:token登录成功后的凭证 price提现金额
